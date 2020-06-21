@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
+=======
+>>>>>>> Adding some questions
 # Compiled class file
 *.class
 
@@ -15,10 +18,15 @@
 # Package Files #
 *.jar
 *.war
+<<<<<<< HEAD
+=======
+*.nar
+>>>>>>> Adding some questions
 *.ear
 *.zip
 *.tar.gz
 *.rar
+<<<<<<< HEAD
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -27,3 +35,10 @@ hs_err_pid*
 .idea/
 leet-code.iml
 src/math/int_reverse/
+=======
+*.xml
+*.iml
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+>>>>>>> Adding some questions
