@@ -17,4 +17,21 @@ public class MirrorReflection {
         if (m % 2 == 1 && n % 2 == 0) return 2;
         return -1;
     }
+
+    static int mirrorReflection_1(int p, int q) {
+        if (q == 0)
+            return 0;
+
+        int lcm = p * q / gcd(p, q);
+        if ((lcm / q) % 2 == 0)
+            return 2;
+        if ((lcm / p) % 2 == 0)
+            return 0;
+
+        return 1;
+    }
+
+    public static int gcd(int a, int b) {
+        return b > 0 ? gcd(b, a % b) : a;
+    }
 }
