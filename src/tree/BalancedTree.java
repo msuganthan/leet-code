@@ -34,7 +34,7 @@ public class BalancedTree {
 
         int left = backTrack(root.left);
         int right = backTrack(root.right);
-        
+
         if(Math.abs(left - right) > 1)
             isBalanced = false;
 
