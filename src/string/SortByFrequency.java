@@ -1,6 +1,5 @@
 package string;
 
-import com.sun.applet2.AppletParameters;
 
 import java.util.*;
 import java.util.stream.Collectors;
