@@ -11,6 +11,13 @@ public class SubSets {
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
         backTrack(list, new ArrayList<>(), nums, 0);
+
+        for (List<Integer> integers : list) {
+            System.out.println();
+            for (Integer integer: integers) {
+                System.out.print(integer + ", ");
+            }
+        }
     }
 
     private static void backTrack(List<List<Integer>> list, List<Integer> current, int[] nums, int index) {
