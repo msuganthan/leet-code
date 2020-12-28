@@ -9,12 +9,12 @@ public class Permute {
         int[] nums = new int[] {1, 2, 3};
         List<List<Integer>> list = new ArrayList<>();
         backTrack(list, new ArrayList<>(), nums);
-        for (List<Integer> integers : list) {
+        /*for (List<Integer> integers : list) {
             System.out.println();
             for (Integer integer: integers) {
                 System.out.print(integer + ", ");
             }
-        }
+        }*/
     }
 
 
