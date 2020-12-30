@@ -2,6 +2,12 @@ package trie;
 
 public class WordDictionary {
 
+    TrieNode root;
+
+    public WordDictionary() {
+        root = new TrieNode();
+    }
+
     public static void main(String[] args) {
         WordDictionary wordDictionary = new WordDictionary();
         wordDictionary.addWord("bad");
@@ -11,11 +17,6 @@ public class WordDictionary {
         System.out.println(wordDictionary.search("bad")); // return True
         System.out.println(wordDictionary.search(".ad")); // return True
         System.out.println(wordDictionary.search("b..")); // return True
-    }
-
-    TrieNode root;
-    public WordDictionary() {
-        root = new TrieNode();
     }
 
     void addWord(String word) {
@@ -67,12 +68,12 @@ public class WordDictionary {
             links[ch - 'a'] = trieNode;
         }
 
-        public void setEnd(boolean end) {
-            this.end = end;
-        }
-
         public boolean isEnd() {
             return end;
+        }
+
+        public void setEnd(boolean end) {
+            this.end = end;
         }
     }
 }

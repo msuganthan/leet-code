@@ -14,9 +14,9 @@ public class InsertAndMax {
         StringBuilder stringBuilder = new StringBuilder();
         char[] chrs = intStr.toCharArray();
         boolean found = false;
-        for (int j = 0; j < chrs.length;) {
+        for (int j = 0; j < chrs.length; ) {
             char num = chrs[j];
-            if (chrs[0] == '-' &&  num > '5'  && found == false) {
+            if (chrs[0] == '-' && num > '5' && found == false) {
                 found = true;
                 stringBuilder.append(5);
                 stringBuilder.append(num);

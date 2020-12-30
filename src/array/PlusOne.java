@@ -3,7 +3,7 @@ package array;
 public class PlusOne {
 
     public static void main(String[] args) {
-        plusOne(new int[] {9});
+        plusOne(new int[]{9});
     }
 
     static int[] plusOne(int[] digits) {

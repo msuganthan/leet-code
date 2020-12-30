@@ -6,7 +6,7 @@ import java.util.Map;
 public class SubArrayWithGivenSum {
 
     public static void main(String[] args) {
-        subArraySum(new int[] { 3, 4, 7, 2, -3, 1, 4, 2}, 7);
+        subArraySum(new int[]{3, 4, 7, 2, -3, 1, 4, 2}, 7);
     }
 
     static int subArraySum(int[] nums, int k) {
@@ -18,7 +18,7 @@ public class SubArrayWithGivenSum {
             sum += nums[i];
             if (map.containsKey(sum - k))
                 count += map.get(sum - k);
-            map.put(sum, map.getOrDefault(sum , 0) + 1);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return count;
     }

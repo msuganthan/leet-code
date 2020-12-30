@@ -19,7 +19,7 @@ public class IntegerReplacement {
             if ((n & 1) == 0)
                 n >>>= 1;
 
-            //we just need to remove as many 1's as possible
+                //we just need to remove as many 1's as possible
             else if (n == 3 || Integer.bitCount(n + 1) > Integer.bitCount(n - 1))
                 --n;
 

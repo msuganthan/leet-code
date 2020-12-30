@@ -4,12 +4,12 @@ import java.util.*;
 
 public class LadderLength {
     public static void main(String[] args) {
-        ladderLength("hot", "dog", Arrays.asList("hot","dog"));
+        ladderLength("hot", "dog", Arrays.asList("hot", "dog"));
     }
 
     static int ladderLength(String beginWord, String endWord, List<String> wordList) {
         HashSet<String> set = new HashSet<>();
-        for (String word: wordList)
+        for (String word : wordList)
             set.add(word);
 
         if (!set.contains(endWord))

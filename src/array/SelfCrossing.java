@@ -3,7 +3,7 @@ package array;
 public class SelfCrossing {
 
     public static void main(String[] args) {
-        System.out.println(isSelfCrossing(new int[] {1,1,2,1,1}));
+        System.out.println(isSelfCrossing(new int[]{1, 1, 2, 1, 1}));
     }
 
     static boolean isSelfCrossing(int[] x) {
@@ -21,7 +21,7 @@ public class SelfCrossing {
 
         if (i == x.length) return false;
 
-        if ((i == 3 && x[i] == x [i - 2]) || (i >= 4 && x[i] >= x[i - 2] - x[i - 4]))
+        if ((i == 3 && x[i] == x[i - 2]) || (i >= 4 && x[i] >= x[i - 2] - x[i - 4]))
             x[i - 1] -= x[i - 3];
 
         i++;
@@ -30,7 +30,7 @@ public class SelfCrossing {
             /**
              * Third element is lesser than or equals first element
              */
-            if(x[i] >= x[i - 2]) return true;
+            if (x[i] >= x[i - 2]) return true;
             i++;
         }
 

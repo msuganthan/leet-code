@@ -9,7 +9,7 @@ public class LastStoneWeight2 {
 
         int N = stones.length;
         int sum = 0;
-        for (int stone: stones) {
+        for (int stone : stones) {
             sum += stone;
         }
 

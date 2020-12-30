@@ -12,7 +12,7 @@ public class IsPanlindrome {
         if (x < 0 || (x != 0 && x % 10 == 0))
             return false;
         int result = 0;
-        while(x > result) {
+        while (x > result) {
             result = result * 10 + x % 10;
             x = x / 10;
         }

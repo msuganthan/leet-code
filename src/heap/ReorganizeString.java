@@ -15,7 +15,7 @@ public class ReorganizeString {
         int N = S.length();
         int[] counts = new int[26];
 
-        for (char c: S.toCharArray())
+        for (char c : S.toCharArray())
             counts[c - 'a'] += 100;
 
         for (int i = 0; i < 26; i++)
@@ -24,7 +24,7 @@ public class ReorganizeString {
         Arrays.sort(counts);
         char[] ans = new char[N];
         int t = 1;
-        for (int code: counts) {
+        for (int code : counts) {
             int ct = code / 100;
             char ch = (char) ('a' + (code % 100));
 

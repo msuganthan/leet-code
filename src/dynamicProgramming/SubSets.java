@@ -7,14 +7,14 @@ import java.util.List;
 public class SubSets {
 
     public static void main(String[] args) {
-        int[] nums = new int[] {1, 2, 3};
+        int[] nums = new int[]{1, 2, 3};
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(nums);
         backTrack(list, new ArrayList<>(), nums, 0);
 
         for (List<Integer> integers : list) {
             System.out.println();
-            for (Integer integer: integers) {
+            for (Integer integer : integers) {
                 System.out.print(integer + ", ");
             }
         }

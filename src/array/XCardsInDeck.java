@@ -1,16 +1,12 @@
 package array;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class XCardsInDeck {
 
     public static void main(String[] args) {
-       hasGroupsSizeX(new int[] {1,1,2,2,2,2});
+        hasGroupsSizeX(new int[]{1, 1, 2, 2, 2, 2});
     }
 
     public static boolean hasGroupsSizeX(int[] deck) {

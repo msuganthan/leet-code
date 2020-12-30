@@ -1,6 +1,5 @@
 package stack;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class RemoveDuplicates {
@@ -14,12 +13,12 @@ public class RemoveDuplicates {
         boolean[] visited = new boolean[26]; // will contain if character (i + 'a') is prerent in current result
         char[] chars = str.toCharArray();
 
-        for (char c: chars)
+        for (char c : chars)
             result[c - 'a']++;
 
         Stack<Character> stack = new Stack<>();
         int index;
-        for (char c: chars) {
+        for (char c : chars) {
             index = c - 'a';
             result[index]--;
 

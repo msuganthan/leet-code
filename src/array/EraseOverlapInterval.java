@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class EraseOverlapInterval {
     public static void main(String[] args) {
-        eraseOverlapIntervals(new int[][]{ {1, 2}});
+        eraseOverlapIntervals(new int[][]{{1, 2}});
     }
 
     public static int eraseOverlapIntervals(int[][] intervals) {

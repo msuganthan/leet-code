@@ -10,14 +10,14 @@ public class RelativeSort {
     }
 
     static int[] relativeSortArray(int[] arr1, int[] arr2) {
-        int k       = 0;
+        int k = 0;
         int[] count = new int[1001];
-        int[] ans   = new int[arr1.length];
+        int[] ans = new int[arr1.length];
 
-        for (int i: arr1)
+        for (int i : arr1)
             ++count[i];
 
-        for (int i: arr2)
+        for (int i : arr2)
             while (count[i]-- > 0)
                 ans[k++] = i;
 
@@ -25,6 +25,6 @@ public class RelativeSort {
             while (count[i]-- > 0)
                 ans[k++] = i;
 
-       return ans;
+        return ans;
     }
 }

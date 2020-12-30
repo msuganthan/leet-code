@@ -11,15 +11,16 @@ public class ReverseList {
 
         reverseList(listNode1);
     }
+
     static ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
 
-        while(curr != null) {
+        while (curr != null) {
             ListNode tempNode = curr.next;
-            curr.next         = prev;
-            prev              = curr;
-            curr              = tempNode;
+            curr.next = prev;
+            prev = curr;
+            curr = tempNode;
         }
 
         return prev;
@@ -28,8 +29,17 @@ public class ReverseList {
     static public class ListNode {
         int val;
         ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

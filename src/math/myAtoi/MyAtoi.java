@@ -20,7 +20,7 @@ public class MyAtoi {
             if (Character.isDigit(str.charAt(i))) {
                 int d = str.charAt(i) - '0';
                 if (n > (Integer.MAX_VALUE - d) / 10)  //Detect the integer overflow.
-    			    return (sign == -1)? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                    return (sign == -1) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
 
                 n = n * 10 + d;
             } else {

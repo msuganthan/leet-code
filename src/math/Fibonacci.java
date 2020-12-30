@@ -13,10 +13,10 @@ public class Fibonacci {
     }
 
     static int fib(int N, List<Integer> result) {
-        if( N == 0)
+        if (N == 0)
             return 0;
 
-        if(N == 1)
+        if (N == 1)
             return 1;
 
         result.add(fib(N - 1, result) + fib(N - 2, result));

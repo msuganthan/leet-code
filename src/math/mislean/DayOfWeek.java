@@ -1,6 +1,5 @@
 package math.mislean;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -12,17 +11,15 @@ public class DayOfWeek {
         String target = "Wed";
         int k = 2;
         int targetIndex = IntStream.range(0, daysOfWeek.length)
-                                   .filter(i -> target.equals(daysOfWeek[i]))
-                                   .findFirst()
-                                   .orElse(-1);
+                .filter(i -> target.equals(daysOfWeek[i]))
+                .findFirst()
+                .orElse(-1);
         String s = daysOfWeek[(targetIndex + k) % 7];
 
         /*String x = "a";
         Runnable r = () -> System.out.println(x);
         x = "b";
         r.run();*/
-
-
 
 
     }

@@ -27,11 +27,11 @@ public class PopulateNextRight {
     public static Node connect(Node root) {
 
         Node temp = root;
-        while(root != null) {
+        while (root != null) {
 
-            if(root.right != null) {
+            if (root.right != null) {
                 root.left.next = root.right;
-                if(root.next != null && root.next.left != null)
+                if (root.next != null && root.next.left != null)
                     root.right.next = root.next.left;
                 else
                     root.right.next = null;

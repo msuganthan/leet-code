@@ -21,8 +21,8 @@ public class RomanNumerals {
         a['M' - 'A'] = 1000;
         char prev = 'A';
         int sum = 0;
-        for(char s : str.toCharArray()) {
-            if(a[s - 'A'] > a[prev - 'A']) {
+        for (char s : str.toCharArray()) {
+            if (a[s - 'A'] > a[prev - 'A']) {
                 sum = sum - 2 * a[prev - 'A'];
             }
             sum = sum + a[s - 'A'];

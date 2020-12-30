@@ -11,7 +11,7 @@ public class TargetSum {
 
     static int targetSum(int[] nums, int S) {
         int[] dp = new int[2001];
-        dp[nums[0] + 1000]   = 1;
+        dp[nums[0] + 1000] = 1;
         dp[-nums[0] + 1000] += 1;
 
         for (int i = 1; i < nums.length; i++) {

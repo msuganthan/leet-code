@@ -2,8 +2,9 @@ package array;
 
 public class ValidTriangle {
     public static void main(String[] args) {
-        System.out.println(validTriangle(new int[]{2,2,3,4}));
+        System.out.println(validTriangle(new int[]{2, 2, 3, 4}));
     }
+
     static int validTriangle(int[] nums) {
         int count = 0;
         for (int i = 0; i < nums.length - 2; i++) {
@@ -14,7 +15,7 @@ public class ValidTriangle {
             while (left < right) {
                 int leftNumber = nums[left];
                 int rightNumber = nums[right];
-                if (actualNumber  <= leftNumber && leftNumber <= rightNumber) {
+                if (actualNumber <= leftNumber && leftNumber <= rightNumber) {
                     count++;
                     right--;
                 } else

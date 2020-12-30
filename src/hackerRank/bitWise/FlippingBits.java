@@ -8,6 +8,7 @@ public class FlippingBits {
     /**
      * 22 = 1 << 2 = (int) Math.pow(2, 2)
      * 210 = 1 << 10 = (int) Math.pow(2, 10)
+     *
      * @param n
      * @return
      */

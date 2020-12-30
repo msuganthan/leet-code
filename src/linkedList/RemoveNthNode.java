@@ -15,7 +15,7 @@ public class RemoveNthNode {
 
     static ListNode removeNthNode(ListNode head, int n) {
         ListNode dummyNode = new ListNode(0);
-        dummyNode.next     = head;
+        dummyNode.next = head;
 
         ListNode slow = dummyNode;
         ListNode fast = dummyNode;
@@ -36,8 +36,17 @@ public class RemoveNthNode {
     static public class ListNode {
         int val;
         ListNode next;
-        ListNode() {}
-        ListNode(int val) { this.val = val; }
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }

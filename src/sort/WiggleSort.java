@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class WiggleSort {
 
     public static void main(String[] args) {
-        wiggleSort(new int[] {1, 3, 2, 2, 3, 1});
+        wiggleSort(new int[]{1, 3, 2, 2, 3, 1});
     }
 
     static void wiggleSort(int[] nums) {

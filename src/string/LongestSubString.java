@@ -19,9 +19,9 @@ public class LongestSubString {
                 characters.add(s.charAt(i++));
                 max = Math.max(max, characters.size());
             } else
-                /**
-                 * delete from the head by using a slow pointer i until we can put character j to the hash set
-                 */
+            /**
+             * delete from the head by using a slow pointer i until we can put character j to the hash set
+             */
                 characters.remove(s.charAt(j++));
 
 

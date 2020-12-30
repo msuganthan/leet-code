@@ -16,10 +16,10 @@ public class MctFromLeafValues {
         Stack<Integer> stack = new Stack<>();
         stack.push(Integer.MAX_VALUE);
 
-        for (int a: A) {
+        for (int a : A) {
             while (stack.peek() <= a) {
                 int mid = stack.pop();
-                res    += mid * Math.min(stack.peek(), a);
+                res += mid * Math.min(stack.peek(), a);
             }
             stack.push(a);
         }

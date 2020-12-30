@@ -18,7 +18,7 @@ public class RemoveKthDigit {
         Stack<Character> stack = new Stack<>();
         int i = 0;
 
-        while ( i < num.length()) {
+        while (i < num.length()) {
 
             while (k > 0 && !stack.isEmpty() && stack.peek() > num.charAt(i)) {
                 stack.pop();

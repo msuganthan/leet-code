@@ -3,7 +3,7 @@ package slidingWindow;
 public class MaxConsective111s {
 
     public static void main(String[] args) {
-        longestOnes(new int[] { 1,1,1,0,0,0,1,1,1,1,0 }, 2);
+        longestOnes(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2);
     }
 
     static int longestOnes(int[] A, int K) {

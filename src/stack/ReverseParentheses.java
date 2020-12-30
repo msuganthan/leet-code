@@ -12,9 +12,9 @@ public class ReverseParentheses {
     }
 
     static String reverseParentheses(String s) {
-        int N                 = s.length();
+        int N = s.length();
         Stack<Integer> opened = new Stack<>();
-        int[] pair            = new int[N];
+        int[] pair = new int[N];
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(')
                 opened.push(i);

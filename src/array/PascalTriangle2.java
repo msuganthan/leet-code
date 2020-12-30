@@ -15,7 +15,7 @@ public class PascalTriangle2 {
 
         for (int i = 1; i < rowIndex; i++) {
             for (int j = i - 1; j >= 1; j--)
-                result.set(j, result.get( j - 1) + result.get( j ));
+                result.set(j, result.get(j - 1) + result.get(j));
             result.add(1);
         }
 

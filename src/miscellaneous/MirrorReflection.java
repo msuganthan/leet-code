@@ -8,7 +8,7 @@ public class MirrorReflection {
 
     static int mirrorReflection(int p, int q) {
         int m = 1, n = 1;
-        while(m * p != n * q){
+        while (m * p != n * q) {
             n++;
             m = n * q / p;
         }

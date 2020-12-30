@@ -1,8 +1,6 @@
 package math;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.List;
 
 public class ModifiedFibonacci {
 
@@ -14,7 +12,7 @@ public class ModifiedFibonacci {
         if (N <= 1)
             return N;
 
-        int first  = 0;
+        int first = 0;
         int second = 1;
         int sum = 0;
         for (int i = 1; i <= N; i++) {

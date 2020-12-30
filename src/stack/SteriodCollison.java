@@ -13,12 +13,13 @@ public class SteriodCollison {
 
     public int[] asteroidCollision(int[] asteroids) {
         Stack<Integer> stack = new Stack<>();
-        for (int ast: asteroids) {
-            collision: {
+        for (int ast : asteroids) {
+            collision:
+            {
                 //stack peek is positive and ast is negative
                 while (!stack.isEmpty() && stack.peek() > 0 && ast < 0) {
 
-                    if(stack.peek() < -ast) {
+                    if (stack.peek() < -ast) {
                         stack.pop();
                         continue;
                     } else if (stack.peek() == ast)

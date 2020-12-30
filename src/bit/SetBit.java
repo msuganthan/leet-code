@@ -5,7 +5,7 @@ public class SetBit {
         System.out.println(setBit(9));
         System.out.println(setBitRev(9));
     }
-    
+
     static int setBit(int n) {
         int ones = 0;
         while (n > 0) {

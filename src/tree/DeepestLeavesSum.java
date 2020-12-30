@@ -23,13 +23,13 @@ public class DeepestLeavesSum {
         int res = 0, i;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while(!queue.isEmpty()) {
-            for (i = queue.size() - 1, res = 0; i >= 0 ; i--) {
+        while (!queue.isEmpty()) {
+            for (i = queue.size() - 1, res = 0; i >= 0; i--) {
                 TreeNode current = queue.poll();
                 res += current.val;
 
                 if (current.right != null) queue.add(current.right);
-                if (current.left  != null) queue.add(current.left);
+                if (current.left != null) queue.add(current.left);
             }
         }
         return res;

@@ -10,8 +10,8 @@ public class MultiplyTwoStrings {
         int m = num1.length() - 1, n = num2.length() - 1;
         int[] pos = new int[m + n + 2];
 
-        for (int i = m; i >=  0; i--) {
-            for (int j = n; j >= 0 ; j--) {
+        for (int i = m; i >= 0; i--) {
+            for (int j = n; j >= 0; j--) {
                 int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
 
                 int p1 = i + j;
@@ -24,7 +24,7 @@ public class MultiplyTwoStrings {
             }
         }
         StringBuilder result = new StringBuilder();
-        for(int p : pos)
+        for (int p : pos)
             if (result.length() != 0 || p != 0)
                 result.append(p);
 

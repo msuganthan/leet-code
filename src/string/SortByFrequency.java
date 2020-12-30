@@ -2,7 +2,6 @@ package string;
 
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class SortByFrequency {
     public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class SortByFrequency {
         for (char c : chars)
             map.put(c, map.getOrDefault(c, 0) + 1);
 
-        for (Character c: map.keySet()) {
+        for (Character c : map.keySet()) {
             Set<Character> characters = frequencyMapper.get(map.get(c));
             if (characters == null)
                 characters = new HashSet<>();
@@ -30,7 +29,7 @@ public class SortByFrequency {
                 .forEach(n -> {
                     int temp = n;
                     Set<Character> characters = frequencyMapper.get(n);
-                    for (Character c: characters) {
+                    for (Character c : characters) {
                         while (n > 0) {
                             stringBuilder.append(c);
                             n--;

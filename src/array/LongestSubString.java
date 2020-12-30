@@ -16,7 +16,7 @@ public class LongestSubString {
 
         Set<Character> characters = new HashSet<>();
         while (i < s.length()) {
-            if(!characters.contains(s.charAt(i))) {
+            if (!characters.contains(s.charAt(i))) {
                 characters.add(s.charAt(i++));
                 max = Math.max(max, characters.size());
             } else

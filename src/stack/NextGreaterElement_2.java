@@ -6,7 +6,7 @@ import java.util.Stack;
 public class NextGreaterElement_2 {
 
     public static void main(String[] args) {
-        nextGreaterElements(new int[] {1, 2, 1});
+        nextGreaterElements(new int[]{1, 2, 1});
     }
 
     public static int[] nextGreaterElements(int[] nums) {

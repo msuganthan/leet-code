@@ -1,11 +1,12 @@
 package array;
 
 import java.text.StringCharacterIterator;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MatchingSubSequence {
     public static void main(String[] args) {
-        numMatchingSubSeq("abcde", new String[]{"a","bb","acd","ace"});
+        numMatchingSubSeq("abcde", new String[]{"a", "bb", "acd", "ace"});
     }
 
     public static int numMatchingSubSeq(String S, String[] words) {

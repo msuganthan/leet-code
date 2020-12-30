@@ -7,7 +7,7 @@ public class BalancedParentheses {
     }
 
     static int minInsertions(String s) {
-        int res   = 0;
+        int res = 0;
         int right = 0;
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {

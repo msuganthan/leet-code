@@ -12,7 +12,7 @@ public class NumberOfGoodPairs {
     public static int numIdenticalPairs(int[] nums) {
         int res = 0;
         int[] count = new int[101];
-        for (int n: nums)
+        for (int n : nums)
             res += count[n]++;
         return res;
     }

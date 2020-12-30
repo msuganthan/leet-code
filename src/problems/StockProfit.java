@@ -1,8 +1,5 @@
 package problems;
 
-import java.util.List;
-import java.util.stream.IntStream;
-
 public class StockProfit {
     public static void main(String[] args) {
 

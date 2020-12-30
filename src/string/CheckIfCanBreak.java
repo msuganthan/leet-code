@@ -30,7 +30,7 @@ public class CheckIfCanBreak {
             } else if (count2 > count1) {
                 if (f1)
                     return false;
-                f2= true;
+                f2 = true;
             }
         }
         return true;

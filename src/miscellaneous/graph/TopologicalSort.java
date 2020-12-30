@@ -5,41 +5,42 @@ import java.util.*;
 public class TopologicalSort {
 
     public static void main(String[] args) {
-        ArrayList<Character> list = new ArrayList(Arrays.asList('A','B','C','D','E'));
+        ArrayList<Character> list = new ArrayList(Arrays.asList('A', 'B', 'C', 'D', 'E'));
         Graph charGraph = new Graph(list);
-        charGraph.addEdge('A','B');
-        charGraph.addEdge('A','C');
-        charGraph.addEdge('A','D');
-        charGraph.addEdge('B','D');
-        charGraph.addEdge('C','E');
-        charGraph.addEdge('D','E');
+        charGraph.addEdge('A', 'B');
+        charGraph.addEdge('A', 'C');
+        charGraph.addEdge('A', 'D');
+        charGraph.addEdge('B', 'D');
+        charGraph.addEdge('C', 'E');
+        charGraph.addEdge('D', 'E');
         charGraph.topologicalSort();
     }
 
     static class Graph {
 
         //Holds all nodes
-        private List<Character> nodes;
+        private final List<Character> nodes;
         //Holds all the edges
         private ArrayList<Character> edgeList;
         //Holds the edges for each node.
-        private HashMap<Character, ArrayList<Character>> edges;
+        private final HashMap<Character, ArrayList<Character>> edges;
         //Indicate the visited nodes.
-        private List<Character> visitedNodes;
+        private final List<Character> visitedNodes;
 
         Graph(List<Character> nodes) {
-            this.nodes   = nodes;
-            edges        = new HashMap<>();
+            this.nodes = nodes;
+            edges = new HashMap<>();
             visitedNodes = new ArrayList<>();
         }
 
         /**
          * Method to add edge to a node.
+         *
          * @param node
          * @param child
          */
         public void addEdge(Character node, Character child) {
-            if(!edges.containsKey(node))
+            if (!edges.containsKey(node))
                 edgeList = new ArrayList<>();
             else
                 edgeList = edges.get(node);
@@ -50,12 +51,12 @@ public class TopologicalSort {
 
         public void topologicalSort() {
             Stack stack = new Stack();
-            for (Character c: nodes)
+            for (Character c : nodes)
                 if (!visitedNodes.contains(c))
                     sort(c, stack);
 
-                while (!stack.isEmpty())
-                    System.out.print(stack.pop() + " ");
+            while (!stack.isEmpty())
+                System.out.print(stack.pop() + " ");
         }
 
         public void sort(Character ch, Stack stack) {

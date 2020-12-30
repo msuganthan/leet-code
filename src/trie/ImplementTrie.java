@@ -10,12 +10,12 @@ public class ImplementTrie {
 
         trie.insert("apple");
         trie.insert("appletree");
-        System.out.println("Searching apple ==> "+ trie.search("apple"));   // returns true
-        System.out.println("Searching appletree ==> "+ trie.search("appletree"));
-        System.out.println("Searching app ==> "+ trie.search("app"));     // returns false
-        System.out.println("Search starts with app ==> "+  trie.startsWith("app")); // returns true
+        System.out.println("Searching apple ==> " + trie.search("apple"));   // returns true
+        System.out.println("Searching appletree ==> " + trie.search("appletree"));
+        System.out.println("Searching app ==> " + trie.search("app"));     // returns false
+        System.out.println("Search starts with app ==> " + trie.startsWith("app")); // returns true
         trie.insert("app");
-        System.out.println("Searching app ==> "+trie.search("app"));     // returns true
+        System.out.println("Searching app ==> " + trie.search("app"));     // returns true
     }
 
     class Trie {
@@ -62,8 +62,8 @@ public class ImplementTrie {
     }
 
     class TrieNode {
-        TrieNode[] links;
         final int R = 26;
+        TrieNode[] links;
         boolean end;
 
         TrieNode() {
@@ -82,12 +82,12 @@ public class ImplementTrie {
             links[ch - 'a'] = node;
         }
 
-        public void setEnd(boolean end) {
-            this.end = end;
-        }
-
         public boolean isEnd() {
             return end;
+        }
+
+        public void setEnd(boolean end) {
+            this.end = end;
         }
     }
 

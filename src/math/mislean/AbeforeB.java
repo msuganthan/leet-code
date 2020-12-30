@@ -16,9 +16,7 @@ public class AbeforeB {
         int i = s.lastIndexOf('a');
         if (i == -1 || i == 0)
             return true;
-        char b = s.charAt(i-1);
-        if (b == 'b')
-            return false;
-        return true;
+        char b = s.charAt(i - 1);
+        return b != 'b';
     }
 }
