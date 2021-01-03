@@ -3,7 +3,7 @@ package array;
 /**
  * Created by msuganthan on 5/9/20.
  */
-public class NumberOfGoodPairs {
+public class NumIdenticalPairs {
 
     public static void main(String[] args) {
         numIdenticalPairs(new int[]{1, 2, 3, 1, 1, 3});
