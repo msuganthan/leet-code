@@ -1,4 +1,4 @@
-package contest222;
+package twoPointers;
 
 import java.util.HashMap;
 

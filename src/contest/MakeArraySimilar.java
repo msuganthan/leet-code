@@ -1,4 +1,4 @@
-package context;
+package contest;
 
 public class MakeArraySimilar {
     public static void main(String[] args) {

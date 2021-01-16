@@ -1,8 +1,8 @@
-package contest222;
+package twoPointers;
 
 public class WaysToSplit {
     public static void main(String[] args){
-        System.out.println(waysToSplit(new int[] {1, 1, 1}));
+        System.out.println(waysToSplit(new int[] {1, 2, 2, 2, 5, 0}));
     }
 
     static int waysToSplit(int[] nums) {
@@ -30,7 +30,7 @@ public class WaysToSplit {
 
         int answer = -1;
         while (left <= right) {
-            int mid = (right - left) / 2 + 1;
+            int mid = (right - left) / 2 + left;
             int midSum = prefixSum[mid] - prefixSum[index - 1];
             int rightSum = prefixSum[N - 1] - prefixSum[mid];
 
