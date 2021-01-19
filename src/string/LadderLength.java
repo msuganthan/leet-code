@@ -26,7 +26,7 @@ public class LadderLength {
                 char[] word_chars = currentWord.toCharArray();
                 for (int j = 0; j < word_chars.length; j++) {
                     char original_char = word_chars[j];
-                    for (char c = 'a'; c < 'z'; c++) {
+                    for (char c = 'a'; c <= 'z'; c++) {
                         if (word_chars[j] == c) continue;
 
                         word_chars[j] = c;
