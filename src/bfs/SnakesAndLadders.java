@@ -7,40 +7,49 @@ import java.util.Queue;
 
 public class SnakesAndLadders {
     public static void main(String[] args) {
-
+        System.out.println(snakesAndLadders(new int[][]{
+                {-1, -1, -1, -1, -1, -1},
+                {-1, -1, -1, -1, -1, -1},
+                {-1, -1, -1, -1, -1, -1},
+                {-1, 35, -1, -1, 13, -1},
+                {-1, -1, -1, -1, -1, -1},
+                {-1, 15, -1, -1, -1, -1}
+        }));
     }
 
     static int snakesAndLadders(int[][] board) {
         int N = board.length;
 
-        Map<Integer, Integer> dist = new HashMap<>();
-        dist.put(1, 0);
+        Map<Integer, Integer> distance = new HashMap();
+        distance.put(1, 0);
 
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList();
         queue.add(1);
 
-        while (!queue.isEmpty()) {
-            int s = queue.remove();
-            if (s == N * N) return dist.get(s);
+        while(!queue.isEmpty()) {
+            int startingPoint = queue.poll();
+            if(startingPoint == N * N) return distance.get(startingPoint);
 
-            for (int s2 = s + 1; s2 <= Math.min(s + 6, N * N); s2++) {
-                int rc = get(s2, N);
-                int r = rc / N, c = rc % N;
-                int s2Final = board[r][c] == -1 ? s2 : board[r][c];
-                if (!dist.containsKey(s2Final)) {
-                    dist.put(s2Final, dist.get(s) + 1);
-                    queue.add(s2Final);
+            for(int runningPoint = startingPoint + 1; runningPoint <= Math.min(startingPoint + 6, N * N); runningPoint++) {
+                int[] nextXY = findXY(runningPoint, N);
+                int row = nextXY[0];
+                int col = nextXY[1];
+                int runningOriginal = board[row][col] == -1 ? runningPoint : board[row][col];
+                if(!distance.containsKey(runningOriginal)) {
+                    distance.put(runningOriginal, distance.get(startingPoint) +  1);
+                    queue.add(runningOriginal);
                 }
             }
         }
+
         return -1;
     }
 
-    static int get(int s, int N) {
-       int quot = (s - 1) / N;
-       int rem = (s - 1) % N;
-       int row = N - 1 - quot;
-       int col = row % 2 != N % 2 ? rem : N - 1 - rem;
-       return row * N + col;
+    static int[] findXY(int s, int N) {
+        int quot = (s - 1) / N;
+        int rem  = (s - 1) % N;
+        int row = N - 1 - quot;
+        int col = quot % 2 == 0 ? rem : N - 1 - rem;
+        return new int[] {row, col};
     }
 }
