@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Sum3 {
+public class ThreeSum {
 
     public static void main(String[] args) {
         threeSum(new int[]{0, 0, 0, 0});
