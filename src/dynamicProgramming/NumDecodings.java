@@ -1,6 +1,6 @@
 package dynamicProgramming;
 
-public class Decode {
+public class NumDecodings {
 
     public static void main(String[] args) {
         numDecoding("226");

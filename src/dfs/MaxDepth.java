@@ -8,6 +8,13 @@ public class MaxDepth {
 
     }
 
+    int maxDepthRecur(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        return 1 + Math.max(maxDepthRecur(root.left), maxDepthRecur(root.right));
+    }
+
     int maxDepth(TreeNode root) {
         int depth = 0;
         Queue<TreeNode> queue = new LinkedList<>();
