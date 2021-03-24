@@ -2,8 +2,6 @@ package tree;
 
 public class BalancedTree {
 
-    boolean isBalanced = true;
-
     public static void main(String[] args) {
         TreeNode treeNode3 = new TreeNode(3);
         TreeNode treeNode9 = new TreeNode(9);
@@ -22,6 +20,7 @@ public class BalancedTree {
         balancedTree.isBalanced(treeNode3);
     }
 
+    boolean isBalanced = true;
     public boolean isBalanced(TreeNode root) {
         if (root == null) return isBalanced;
 
