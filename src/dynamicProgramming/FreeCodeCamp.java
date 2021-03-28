@@ -3,6 +3,7 @@ package dynamicProgramming;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FreeCodeCamp {
@@ -51,6 +52,14 @@ public class FreeCodeCamp {
         System.out.println("Best Sum ==> "+new BestSum().bestSum(new int[] {1, 4, 5}, 8).stream().map(String::valueOf).collect(Collectors.joining(", ")));
         //25, 25, 25, 25
         System.out.println("Best Sum ==> "+new BestSum().bestSum(new int[] {1, 2, 5, 25}, 100).stream().map(String::valueOf).collect(Collectors.joining(", ")));
+
+        /**
+         * Can construct
+         */
+        System.out.println("Can construct ==> "+ new CanConstruct().canConstruct("abcdef", new String[]{"ab", "abc", "cd", "def", "abcd"})); //true
+        System.out.println("Can construct ==> "+ new CanConstruct().canConstruct("skateboard", new String[]{"bo", "rd", "ate", "t", "ska", "sk", "boar"})); //false
+        System.out.println("Can construct ==> "+ new CanConstruct().canConstruct("enterapotentpot", new String[]{"a", "p", "ent", "enter", "ot", "o", "t"})); //true
+        System.out.println("Can construct ==> "+ new CanConstruct().canConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new String[]{"e", "ee", "eee", "eeee", "eeeee", "eeeeee"})); //false
     }
 
     static class Fibonacci {
@@ -104,11 +113,13 @@ public class FreeCodeCamp {
 
             for (int i = 0; i < nums.length; i++) {
                 int key = target - nums[i];
-                map.put(key, howSum(nums, key));
-                if (map.get(key) != null) {
-                    map.get(key).add(nums[i]);
+                List<Integer> integers = howSum(nums, key);
+                if (integers != null)
+                    integers.add(nums[i]);
+
+                map.put(key, integers);
+                if (integers != null)
                     return map.get(key);
-                }
             }
             return null;
         }
@@ -134,6 +145,26 @@ public class FreeCodeCamp {
             }
             map.put(targetSum, shortestCombination);
             return shortestCombination;
+        }
+    }
+
+    static class CanConstruct {
+        Map<String, Boolean> map = new HashMap<>();
+        public boolean canConstruct(String target, String[] wordBank) {
+            if (map.containsKey(target)) map.get(target);
+            if (target.equals("")) return true;
+
+            for (int i = 0; i < wordBank.length; i++) {
+                if (target.indexOf(wordBank[i]) == 0) {
+                    String slice = target.substring(wordBank[i].length());
+                    if (canConstruct(slice, wordBank)) {
+                        map.put(slice, true);
+                        return true;
+                    }
+                }
+            }
+            map.put(target, false);
+            return false;
         }
     }
 }
