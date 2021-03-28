@@ -151,7 +151,7 @@ public class FreeCodeCamp {
     static class CanConstruct {
         Map<String, Boolean> map = new HashMap<>();
         public boolean canConstruct(String target, String[] wordBank) {
-            if (map.containsKey(target)) map.get(target);
+            if (map.containsKey(target)) return map.get(target);
             if (target.equals("")) return true;
 
             for (int i = 0; i < wordBank.length; i++) {
