@@ -82,11 +82,20 @@ public class FreeCodeCamp {
         /**
          * All construct
          */
-        System.out.println("All construct ==> " + new AllConstruct().allConstruct("purple", new String[]{"purp", "p", "ur", "le", "purpl"}).stream().flatMap(x -> x.stream()).collect(Collectors.joining(", ")));
-        System.out.println("All construct ==> " + new AllConstruct().allConstruct("abcdef", new String[]{"ab", "abc", "cd", "def", "abcd"}).stream().flatMap(x -> x.stream()).collect(Collectors.joining(", ")));
-        System.out.println("All construct ==> " + new AllConstruct().allConstruct("skateboard", new String[]{"bo", "rd", "ate", "t", "ska", "sk", "boar"}).stream().flatMap(x -> x.stream()).collect(Collectors.joining(", ")));
-        System.out.println("All construct ==> " + new AllConstruct().allConstruct("enterapotentpot", new String[]{"a", "p", "ent", "enter", "ot", "o", "t"}).stream().flatMap(x -> x.stream()).collect(Collectors.joining(", ")));
-        System.out.println("All construct ==> " + new AllConstruct().allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new String[]{"e", "ee", "eee", "eeee", "eeeee", "eeeeee"}).stream().flatMap(x -> x.stream()).collect(Collectors.joining(", ")));
+
+        System.out.println("All Construct Purple"); display2D(new AllConstruct().allConstruct("purple", new String[]{"purp", "p", "ur", "le", "purpl"}));
+        System.out.println("All Construct abcdef"); display2D(new AllConstruct().allConstruct("abcdef", new String[]{"ab", "abc", "cd", "def", "abcd", "ef", "c"}));
+        System.out.println("All Construct skateboard"); display2D(new AllConstruct().allConstruct("skateboard", new String[]{"bo", "rd", "ate", "t", "ska", "sk", "boar"}));
+        System.out.println("All Construct enterapotentpot"); display2D(new AllConstruct().allConstruct("enterapotentpot", new String[]{"a", "p", "ent", "enter", "ot", "o", "t"}));
+        System.out.println("All Construct eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef"); display2D(new AllConstruct().allConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new String[]{"e", "ee", "eee", "eeee", "eeeee", "eeeeee"}));
+    }
+
+    private static void display2D(List<List<String>> twoD) {
+        System.out.println("[");
+        for (List<String> allConstruct: twoD){
+            System.out.println("\t[ " + allConstruct.stream().collect(Collectors.joining(",")) + "]");
+        }
+        System.out.println("]");
     }
 
     static class Fibonacci {
