@@ -1,4 +1,4 @@
-package miscellaneous.graph;
+package miscellaneous;
 
 import java.util.*;
 
