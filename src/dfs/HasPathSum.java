@@ -15,12 +15,10 @@ public class HasPathSum {
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;

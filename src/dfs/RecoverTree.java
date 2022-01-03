@@ -35,11 +35,10 @@ public class RecoverTree {
     }
 
 
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
         TreeNode(int val) { this.val = val; }
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
