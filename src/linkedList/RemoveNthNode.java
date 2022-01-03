@@ -33,12 +33,9 @@ public class RemoveNthNode {
         return dummyNode.next;
     }
 
-    static public class ListNode {
+    static private class ListNode {
         int val;
         ListNode next;
-
-        ListNode() {
-        }
 
         ListNode(int val) {
             this.val = val;

@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PreorderTraversal {
-    public static void main(String[] args) {
-
-    }
-
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         preorderTraversal(root, result);
@@ -27,18 +23,9 @@ public class PreorderTraversal {
             preorderTraversal(root.right, result);
     }
 
-
-
     public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

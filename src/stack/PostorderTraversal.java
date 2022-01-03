@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostorderTraversal {
-    public static void main(String[] args) {
-
-    }
-
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         postorderTraversal(root, result);
@@ -31,12 +27,5 @@ public class PostorderTraversal {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

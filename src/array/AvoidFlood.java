@@ -4,11 +4,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
+/**
+ * 1488. Avoid Flood in The City.
+ *
+ * Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over
+ * the nth lake, the nth lake becomes full of water. If it rains over a lake which is full of water,
+ * there will be a flood. Your goal is to avoid the flood in any lake.
+ *
+ * Given an integer array rains where:
+ *
+ * rains[i] > 0 means there will be rains over the rains[i] lake.
+ * rains[i] == 0 means there are no rains this day and you can choose one lake this day and dry it.
+ * Return an array ans where:
+ *
+ * ans.length == rains.length
+ * ans[i] == -1 if rains[i] > 0.
+ * ans[i] is the lake you choose to dry in the ith day if rains[i] == 0.
+ * If there are multiple valid answers return any of them. If it is impossible to avoid flood return an
+ * empty array.
+ *
+ * Notice that if you chose to dry a full lake, it becomes empty, but if you chose to dry an empty lake,
+ * nothing changes.
+ */
 public class AvoidFlood {
-
-    public static void main(String[] args) {
-        System.out.println(avoidFlood(new int[]{1, 2, 0, 0, 2, 1}));
-    }
 
     static int[] avoidFlood(int[] rains) {
         int N = rains.length;
@@ -21,6 +39,7 @@ public class AvoidFlood {
                 answer[i] = 1;
             } else {
                 int lake = rains[i];
+                // if it's already full, find the earliest possible time to empty it
                 if (lakeToFill.containsKey(lake)) {
                     Integer dryDay = dryDays.higher(lakeToFill.get(lake));
                     if (dryDay == null)
