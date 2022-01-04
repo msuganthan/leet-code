@@ -1,4 +1,4 @@
-package contest.biweekly.bw44;
+package trie;
 
 public class LargestAltitude {
     public static void main(String[] args) {
@@ -10,10 +10,9 @@ public class LargestAltitude {
         int maxPoint = Integer.MIN_VALUE;
         for (int i = 0; i < gain.length; i++) {
             int currentMax = firstPoint + gain[i];
+            maxPoint = Math.max(maxPoint, currentMax);
             firstPoint = currentMax;
-            if (maxPoint < currentMax)
-                maxPoint = currentMax;
         }
-        return maxPoint < 0 ? 0 : maxPoint;
+        return maxPoint > 0 ? maxPoint : 0;
     }
 }

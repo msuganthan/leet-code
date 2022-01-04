@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindWords {
-    public static void main(String[] args) {
-
-    }
 
     static List<String> findWords(char[][] board, String[] words) {
         List<String> result = new ArrayList<>();

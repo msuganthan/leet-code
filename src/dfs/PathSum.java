@@ -3,10 +3,17 @@ package dfs;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 113. Path Sum II
+ * https://leetcode.com/problems/path-sum-ii/
+ *
+ * Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where the sum of the
+ * node values in the path equals targetSum. Each path should be returned as a list of the node values, not node
+ * references.
+ *
+ * A root-to-leaf path is a path starting from the root and ending at any leaf node. A leaf is a node with no children.
+ */
 public class PathSum {
-    public static void main(String[] args) {
-
-    }
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         List<List<Integer>> result = new ArrayList<>();

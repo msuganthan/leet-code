@@ -4,12 +4,7 @@ public class RecoverTree {
 
     TreeNode firstElement = null;
     TreeNode secondElement = null;
-
-    TreeNode prevElement = new TreeNode(Integer.MIN_VALUE);
-    public static void main(String[] args) {
-
-    }
-
+    TreeNode prevElement = null;
     void recoverTree(TreeNode root) {
         traverse(root);
         int temp = firstElement.val;
@@ -23,7 +18,7 @@ public class RecoverTree {
 
         traverse(root.left);
 
-        if (firstElement == null && prevElement.val >= root.val)
+        if (firstElement == null && (prevElement == null || prevElement.val >= root.val))
             firstElement = prevElement;
 
         if (firstElement != null && prevElement.val >= root.val)
@@ -40,11 +35,6 @@ public class RecoverTree {
         TreeNode left;
         TreeNode right;
         TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 
 }

@@ -1,10 +1,6 @@
 package dfs;
 
 public class BuildTreeFromInAndPostOrder {
-    public static void main(String[] args) {
-
-    }
-
     TreeNode buildTree(int[] inorder, int[] postorder) {
         return buildTree(inorder, inorder.length - 1, 0, postorder, postorder.length - 1);
     }
