@@ -23,7 +23,7 @@ public class PreorderTraversal {
             preorderTraversal(root.right, result);
     }
 
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
