@@ -1,4 +1,4 @@
-package trie;
+package prefixSum;
 
 public class LargestAltitude {
     public static void main(String[] args) {
