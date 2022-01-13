@@ -12,8 +12,7 @@ public class NumPairsDivisibleBy60 {
     public int numPairsDivisibleBy60(int[] time) {
         int[] cnt = new int[60];
         int result = 0;
-        for (int t :
-                time) {
+        for (int t : time) {
             result += cnt[(600 - t) % 60];
             cnt[t % 60] += 1;
         }

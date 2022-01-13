@@ -1,5 +1,11 @@
 package linkedList;
 
+/**
+ * 206. Reverse Linked List
+ * https://leetcode.com/problems/reverse-linked-list/
+ * Given the head of a singly linked list, reverse the list, and return the
+ * reversed list.
+ */
 public class ReverseList {
 
     public static void main(String[] args) {
