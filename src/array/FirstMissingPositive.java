@@ -1,9 +1,13 @@
 package array;
 
+/**
+ * 41. First Missing Positive
+ * https://leetcode.com/problems/first-missing-positive/
+ *
+ * Given an unsorted integer array nums, return the smallest missing positive integer.
+ * You must implement an algorithm that runs in O(n) time and uses constant extra space.
+ */
 public class FirstMissingPositive {
-    public static void main(String[] args) {
-
-    }
 
     public int firstMissingPositive(int[] nums) {
         for (int i = 0; i < nums.length; i++) {

@@ -1,10 +1,17 @@
 package array;
 
+import java.util.Map;
+
+/**
+ * 209. Minimum Size Subarray Sum
+ *
+ * https://leetcode.com/problems/minimum-size-subarray-sum/
+ *
+ * Given an array of positive integers nums and a positive integer target, return the minimal length of a
+ * contiguous subarray [numsl, numsl+1, ..., numsr-1, numsr] of which the sum is greater than or equal
+ * to target. If there is no such subarray, return 0 instead.
+ */
 public class MinSubArrayLen {
-    public static void main(String[] args) {
-
-    }
-
     public int minSubArrayLen(int target, int[] nums) {
         int answer = Integer.MAX_VALUE;
         int sum = 0;
@@ -16,6 +23,6 @@ public class MinSubArrayLen {
                 sum -= nums[left++];
             }
         }
-        return answer;
+        return answer != Integer.MAX_VALUE ? answer : 0;
     }
 }
