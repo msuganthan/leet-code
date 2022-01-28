@@ -10,22 +10,25 @@ public class IsValidBST {
     }
 
     boolean isValidBST(TreeNode root, Integer lowerBound, Integer upperBound) {
-        if (root == null)
+        if (root == null) {
             return true;
+        }
         int val = root.val;
-        //right value is lesser than lowerBound
-        if (lowerBound != null && val <= lowerBound)
+        if (upperBound != null && val >= upperBound) {
             return false;
+        }
 
-        //left value is greater than upper bound
-        if (upperBound != null && val > upperBound)
+        if (lowerBound != null && val <= lowerBound) {
             return false;
+        }
 
-        if (!isValidBST(root.left, lowerBound, root.val))
+        if (!isValidBST(root.left, lowerBound, root.val)) {
             return false;
+        }
 
-        if (!isValidBST(root.right, root.val, upperBound))
+        if (!isValidBST(root.right, root.val, upperBound)) {
             return false;
+        }
 
         return true;
     }
