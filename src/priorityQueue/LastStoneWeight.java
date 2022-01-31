@@ -9,6 +9,7 @@ public class LastStoneWeight {
         for (int s: stones) {
             queue.offer(s);
         }
+
         while (queue.size() > 1) {
             queue.offer(queue.poll() - queue.poll());
         }

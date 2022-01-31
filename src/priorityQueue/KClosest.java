@@ -18,7 +18,7 @@ public class KClosest {
     public int[][] kClosest(int[][] points, int k) {
         Queue<int[]> queue = new PriorityQueue<>((a, b) -> b[0] - a[0]);
         for (int i = 0; i < points.length; i++) {
-            int[] entry = {distance(points[i]), i};
+            int[] entry = { distance(points[i]), i };
             if (queue.size() < k) {
                 queue.add(entry);
             } else if (entry[0] < queue.peek()[0]) {

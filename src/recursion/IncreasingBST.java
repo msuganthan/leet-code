@@ -12,10 +12,7 @@ import java.util.List;
  */
 public class IncreasingBST {
 
-    public static void main(String[] args) {
-    }
-
-    public TreeNode increasingBST(TreeNode root) {
+    public TreeNode increasingBST1(TreeNode root) {
         List<Integer> values = new ArrayList<>();
         inOrder(root, values);
         TreeNode treeNode = new TreeNode(0);
@@ -34,11 +31,11 @@ public class IncreasingBST {
     }
 
     TreeNode current;
-    public TreeNode increasingBST1(TreeNode root) {
+    public TreeNode increasingBST(TreeNode root) {
         TreeNode ans = new TreeNode(0);
         current = ans;
         iterateRecursively(root);
-        return current.right;
+        return ans.right;
     }
 
     void iterateRecursively(TreeNode node) {
@@ -52,16 +49,10 @@ public class IncreasingBST {
         iterateRecursively(node.right);
     }
 
-    public class TreeNode {
+    private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
         TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }

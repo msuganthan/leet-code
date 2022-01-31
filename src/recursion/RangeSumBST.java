@@ -1,10 +1,6 @@
 package recursion;
 
 public class RangeSumBST {
-    public static void main(String[] args) {
-
-    }
-
     Integer sum = 0;
     public int rangeSumBST(TreeNode root, int low, int high) {
         helper(root, low, high);
@@ -22,16 +18,9 @@ public class RangeSumBST {
     }
 
 
-     public class TreeNode {
+     private class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
      }
 }

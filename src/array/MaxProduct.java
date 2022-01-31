@@ -1,11 +1,7 @@
 package array;
 
 public class MaxProduct {
-    public static void main(String[] args) {
-
-    }
-
-    static int maxProduct(int[] nums) {
+    int maxProduct(int[] nums) {
         int maxProduct = 0;
         int left = 0;
         int right = 0;

@@ -1,5 +1,6 @@
 package bfs;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,32 +15,59 @@ public class FindCheapestPrice {
                 {0, 2, 500}}, 0, 2, 1));
     }
 
-    static int findCheapestPrice(int n, int[][] flights, int src, int dest, int K) {
-        Map<Integer, Map<Integer, Integer>> prices = new HashMap<>();
-        for (int[] f: flights) {
-            if (!prices.containsKey(f[0]))
-                prices.put(f[0], new HashMap<>());
-            prices.get(f[0]).put(f[1], f[2]);
+    static int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+        int adjMatrix[][] = new int[n][n];
+        for (int[] flight: flights) {
+            adjMatrix[flight[0]][flight[1]] = flight[2];
         }
 
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        priorityQueue.add(new int[]{0, src, K + 1});
+        // Shortest distances array
+        int[] distances = new int[n];
 
-        while (!priorityQueue.isEmpty()) {
-            int[] poll = priorityQueue.poll();
-            int price = poll[0];
-            int city  = poll[1];
-            int stop  = poll[2];
+        // Shortest steps array
+        int[] currentStops = new int[n];
+        Arrays.fill(distances, Integer.MAX_VALUE);
+        Arrays.fill(currentStops, Integer.MAX_VALUE);
+        distances[src] = 0;
+        currentStops[src] = 0;
 
-            if (city == dest)
-                return price;
+        // The priority queue would contain (node, cost, stops)
+        PriorityQueue<int[]> minHeap = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
+        minHeap.offer(new int[]{src, 0, 0});
 
-            if (stop > 0) {
-                Map<Integer, Integer> adjacent = prices.getOrDefault(city, new HashMap<>());
-                for (int adjacentKey: adjacent.keySet())
-                    priorityQueue.add(new int[] {price + adjacent.get(adjacentKey), adjacentKey, stop - 1});
+        while (!minHeap.isEmpty()) {
+
+            int[] info = minHeap.poll();
+            int node = info[0], stops = info[2], cost = info[1];
+
+            // If destination is reached, return the cost to get here
+            if (node == dst) {
+                return cost;
+            }
+
+            // If there are no more steps left, continue
+            if (stops == K + 1) {
+                continue;
+            }
+
+            // Examine and relax all neighboring edges if possible
+            for (int nei = 0; nei < n; nei++) {
+                if (adjMatrix[node][nei] > 0) {
+                    int dU = cost, dV = distances[nei], wUV = adjMatrix[node][nei];
+
+                    // Better cost?
+                    if (dU + wUV < dV) {
+                        minHeap.offer(new int[]{nei, dU + wUV, stops + 1});
+                        distances[nei] = dU + wUV;
+                    }
+                    else if (stops < currentStops[nei]) {
+                        minHeap.offer(new int[]{nei, dU + wUV, stops + 1});
+                    }
+                    currentStops[nei] = stops;
+                }
             }
         }
-        return -1;
+
+        return distances[dst] == Integer.MAX_VALUE? -1 : distances[dst];
     }
 }
