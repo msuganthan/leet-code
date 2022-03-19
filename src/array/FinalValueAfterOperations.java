@@ -13,7 +13,8 @@ package array;
  * performing all the operations.
  */
 public class FinalValueAfterOperations {
-    public int finalValueAfterOperations(String[] operations) {
+
+    static int finalValueAfterOperations(String[] operations) {
         int X = 0;
         for (int i = 0; i < operations.length; i++) {
             String operation = operations[i];
