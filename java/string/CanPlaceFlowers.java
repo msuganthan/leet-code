@@ -41,7 +41,7 @@ public class CanPlaceFlowers {
      *
      *         return count == n
      */
-    
+
     /**
      * func canPlaceFlowers(flowerbed []int, n int) bool {
      *     count := 0
