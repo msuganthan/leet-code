@@ -18,14 +18,45 @@ import java.util.Arrays;
  */
 public class PivotIndex {
     public int pivotIndex(int[] nums) {
-        int totalSum = Arrays.stream(nums).sum();
-        int leftSum = 0;
+        int sum = 0, leftSum = 0;
+        for(int x : nums) sum += x;
         for(int i = 0; i < nums.length; i++) {
-            if(leftSum == totalSum - leftSum - nums[i]) {
-                return i;
-            }
+            if(leftSum == sum - leftSum - nums[i]) return i;
             leftSum += nums[i];
         }
         return -1;
     }
+
+    /**
+     *     def pivotIndex(self, nums: List[int]) -> int:
+     *         sum = 0
+     *         leftSum = 0
+     *         for x in nums:
+     *             sum += x
+     *
+     *         for i in range(len(nums)):
+     *             if leftSum == sum - leftSum - nums[i]:
+     *                 return i
+     *             leftSum += nums[i]
+     *         return -1
+     */
+
+    /**
+     * func pivotIndex(nums []int) int {
+     *     sum := 0
+     *     leftSum := 0
+     *     for _, x := range nums {
+     *         sum += x
+     *     }
+     *     for i, num := range nums {
+     *         if leftSum == sum - leftSum - num {
+     *             return i
+     *         }
+     *         leftSum += nums[i]
+     *     }
+     *     return -1
+     * }
+     */
+
+
 }

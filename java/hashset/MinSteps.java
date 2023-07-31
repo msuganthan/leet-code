@@ -1,4 +1,4 @@
-package hashtable;
+package hashset;
 
 /**
  * 2186. Minimum Number of Steps to Make Two Strings Anagram II
