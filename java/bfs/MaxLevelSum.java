@@ -4,49 +4,35 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MaxLevelSum {
-    public static void main(String[] args) {
-        TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode0 = new TreeNode(0);
-        TreeNode treeNode77 = new TreeNode(7);
-        TreeNode treeNode_8 = new TreeNode(8);
 
-        treeNode7.left = treeNode77;
-        treeNode7.right = treeNode_8;
-
-        treeNode1.left = treeNode7;
-        treeNode1.right = treeNode0;
-
-        System.out.println(maxLevelSum(treeNode1));
-    }
-
-    static int maxLevelSum(TreeNode root) {
+    public int maxLevelSum(TreeNode root) {
+        int maxSum = Integer.MIN_VALUE;
+        int depth = 0, answer = 0;
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        int maxSum = root.val;
-        int level = 0;
-        int maxLevel = level;
-        while (!queue.isEmpty()) {
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            depth++;
+            int runningSum = 0;
+
             int size = queue.size();
-            int levelSum = 0;
-            for (int i = 0; i < size; i++) {
+            for(int i = 0; i < size; i++) {
                 TreeNode current = queue.poll();
+                runningSum += current.val;
 
-                levelSum += current.val;
-
-                if (current.left != null)
+                if(current.left != null) {
                     queue.add(current.left);
+                }
 
-                if (current.right != null)
+                if(current.right != null) {
                     queue.add(current.right);
+                }
             }
-            level++;
-            if (maxSum < levelSum) {
-                maxSum = levelSum;
-                maxLevel = level;
+            if(maxSum < runningSum) {
+                maxSum = runningSum;
+                answer = depth;
             }
         }
-        return maxLevel;
+        return answer;
     }
 
 

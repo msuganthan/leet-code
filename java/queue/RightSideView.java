@@ -1,37 +1,45 @@
 package queue;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
- * Binary Tree Right Side View
+ * 199. Binary Tree Right Side View
  *
  * Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes
  * you can see ordered from top to bottom.
  */
 public class RightSideView {
-    public static void main(String[] args) {
-
-    }
-
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        rightView(root, result, 0);
-        return result;
+        List<Integer> answer = new ArrayList<>();
+        if(root == null) {
+            return answer;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i = 0; i < size; i++) {
+                TreeNode current = queue.poll();
+                if(i == size - 1) {
+                    answer.add(current.val);
+                }
+
+                if(current.left != null) {
+                    queue.add(current.left);
+                }
+
+                if(current.right != null) {
+                    queue.add(current.right);
+                }
+            }
+        }
+        return answer;
     }
 
-    void rightView(TreeNode current, List<Integer> result, int depth) {
-        if (current == null)
-            return;
-
-        if (depth == result.size())
-            result.add(current.val);
-
-        rightView(current.right, result, depth + 1);
-        rightView(current.left, result, depth + 1);
-    }
-
-     public class TreeNode {
+     static class TreeNode {
          int val;
          TreeNode left;
          TreeNode right;
