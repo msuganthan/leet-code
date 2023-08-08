@@ -14,17 +14,17 @@ public class RemoveElements {
     }
 
     static ListNode removeElements(ListNode head, int val) {
-        ListNode fakeHead = new ListNode(-1);
-        fakeHead.next = head;
-        ListNode current = head, prev = fakeHead;
-        while (current != null) {
-            if (current.val == val) {
-                prev.next = current.next;
+        ListNode prev = new ListNode(-1);
+        prev.next = head;
+        ListNode fakeHead = prev;
+        ListNode curr = head;
+        while(curr != null) {
+            if(curr.val == val) {
+                prev.next = curr.next;
             } else {
                 prev = prev.next;
             }
-            current = current.next;
-
+            curr = curr.next;
         }
         return fakeHead.next;
     }

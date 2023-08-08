@@ -6,7 +6,6 @@ public class MergeSort {
         int[] nums = new int[] {5,1,1,2,0,0};
         MergeSort mergeSort = new MergeSort();
         mergeSort.mergeSort(nums, nums.length);
-        System.out.println(nums);
     }
 
     void mergeSort(int[] a, int n) {

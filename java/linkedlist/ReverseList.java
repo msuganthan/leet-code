@@ -8,16 +8,6 @@ package linkedlist;
  */
 public class ReverseList {
 
-    public static void main(String[] args) {
-        ListNode listNode5 = new ListNode(5);
-        ListNode listNode4 = new ListNode(4, listNode5);
-        ListNode listNode3 = new ListNode(3, listNode4);
-        ListNode listNode2 = new ListNode(2, listNode3);
-        ListNode listNode1 = new ListNode(1, listNode2);
-
-        reverse(listNode1);
-    }
-
     public ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
