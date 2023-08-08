@@ -20,6 +20,27 @@ public class MiddleNode {
         return slow;
     }
 
+    /**
+     *         slow = head
+     *         fast = head
+     *         while fast and fast.next:
+     *             slow = slow.next
+     *             fast = fast.next.next
+     *         return slow
+     */
+
+    /**
+     * func middleNode(head *ListNode) *ListNode {
+     *     slow := head
+     *     fast := head
+     *     for fast != nil && fast.Next != nil {
+     *         slow = slow.Next
+     *         fast = fast.Next.Next
+     *     }
+     *     return slow
+     * }
+     */
+
     private class ListNode {
         int val;
         ListNode next;
