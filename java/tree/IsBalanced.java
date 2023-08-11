@@ -1,23 +1,26 @@
-package dfs;
+package tree;
 
+/**
+ * 110. Balanced Binary Tree
+ *
+ * Given a binary tree, determine if it is
+ * height-balanced
+ * .
+ */
 public class IsBalanced {
 
     boolean isBalanced = true;
-    public static void main(String[] args) {
-
-    }
-
     boolean isBalanced(TreeNode root) {
-        backTrack(root);
+        dfs(root);
         return isBalanced;
     }
 
-    int backTrack(TreeNode root) {
+    int dfs(TreeNode root) {
         if (root == null)
             return 0;
 
-        int left = backTrack(root.left);
-        int rigt = backTrack(root.right);
+        int left = dfs(root.left);
+        int rigt = dfs(root.right);
 
         if (Math.abs(left - rigt) > 1)
             isBalanced = false;
