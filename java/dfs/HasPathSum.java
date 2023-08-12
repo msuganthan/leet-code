@@ -9,9 +9,6 @@ package dfs;
  * A leaf is a node with no children.
  */
 public class HasPathSum {
-    public static void main(String[] args) {
-
-    }
 
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null)
