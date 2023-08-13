@@ -13,8 +13,8 @@ import java.util.PriorityQueue;
  * int add(int val) Appends the integer val to the stream and returns the element representing the kth largest element in the stream.
  */
 public class KthLargest {
-    PriorityQueue<Integer> queue = new PriorityQueue<>();
-    private int k;
+    private final PriorityQueue<Integer> queue = new PriorityQueue<>();
+    private final int k;
     public KthLargest(int k, int[] nums) {
         this.k = k;
         for(int n: nums) {
