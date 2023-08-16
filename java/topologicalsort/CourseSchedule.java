@@ -1,4 +1,4 @@
-package graph;
+package topologicalsort;
 
 import java.util.LinkedList;
 
@@ -8,8 +8,8 @@ public class CourseSchedule {
         int[] inDegree = new int[numCourses];
         int[] courseOrder = new int[numCourses];
 
-        for(int i = 0; i < prerequisites.length; i++) {
-            inDegree[prerequisites[i][0]]++;
+        for (int[] prerequisite : prerequisites) {
+            inDegree[prerequisite[0]]++;
         }
 
         LinkedList<Integer> stack = new LinkedList<>();
@@ -23,16 +23,15 @@ public class CourseSchedule {
         while(!stack.isEmpty()) {
             int course = stack.pop();
             courseOrder[count++] = course;
-            for(int i = 0; i < prerequisites.length; i++) {
-                if(prerequisites[i][1] == course) {
-                    inDegree[prerequisites[i][0]]--;
-                    if(inDegree[prerequisites[i][0]] == 0) {
-                        stack.push(prerequisites[i][0]);
+            for (int[] prerequisite : prerequisites) {
+                if (prerequisite[1] == course) {
+                    inDegree[prerequisite[0]]--;
+                    if (inDegree[prerequisite[0]] == 0) {
+                        stack.push(prerequisite[0]);
                     }
                 }
             }
         }
-
         return count == numCourses;
     }
 }
