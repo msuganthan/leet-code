@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Map;
-
 /**
  * 209. Minimum Size Subarray Sum
  *

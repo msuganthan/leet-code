@@ -1,4 +1,4 @@
-package prefixSum;
+package prefixsum;
 
 public class SubarraysDivByK {
 

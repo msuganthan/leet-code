@@ -1,6 +1,4 @@
-package prefixSum;
-
-import java.util.Arrays;
+package prefixsum;
 
 /**
  * 724. Find Pivot Index

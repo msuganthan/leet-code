@@ -1,4 +1,4 @@
-package prefixSum;
+package prefixsum;
 
 /**
  * 1732. Find the Highest Altitude
