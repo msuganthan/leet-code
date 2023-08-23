@@ -15,10 +15,6 @@ package dynamicprogramming;
  */
 public class IsInterleave {
 
-    public static void main(String[] args) {
-
-    }
-
     public boolean isInterleave(String s1, String s2, String s3) {
         boolean[][] dp = new boolean[s1.length() + 1][s2.length() + 1];
         int m = s1.length();

@@ -29,4 +29,34 @@ public class GroupAnagrams {
         return new ArrayList<>(map.values());
     }
 
+    /**
+     *     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+     *         groups = {}
+     *         for str in strs:
+     *             key = ''.join(sorted(str))
+     *             groups.setdefault(key, []).append(str)
+     *         return list(groups.values())
+     */
+
+    /**
+     * func groupAnagrams(strs []string) [][]string {
+     *     groups := make(map[string][]string)
+     *     for _, str := range strs {
+     *         sortedChars := []byte(str)
+     *         sort.Slice(sortedChars, func(i, j int) bool {
+     *             return sortedChars[i] < sortedChars[j]
+     *         })
+     *         keyStr := string(sortedChars)
+     *         groups[keyStr] = append(groups[keyStr], str)
+     *     }
+     *
+     *     result := make([][]string, 0, len(groups))
+     * 	for _, group := range groups {
+     * 		result = append(result, group)
+     *        }
+     *
+     * 	return result
+     * }
+     */
+
 }
