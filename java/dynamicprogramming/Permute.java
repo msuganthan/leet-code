@@ -34,22 +34,21 @@ public class Permute {
 }
 
 /**
- * backTrack
- * =========
- * 1, 2, 3
+ *     def permute(self, nums: List[int]) -> List[List[int]]:
+ *         def backtrack(lists, current, nums):
+ *             if len(current) == len(nums):
+ *                 lists.append(current[:])
+ *             else:
+ *                 for i in range(len(nums)):
+ *                     if nums[i] in current:
+ *                         continue
+ *                     current.append(nums[i])
+ *                     backtrack(lists, current, nums)
+ *                     current.pop()
  *
- * current => 1
- *
- * backTrack
- * =========
- *
- * current => 1, 2
- *
- * backTrack
- * =========
- *
- * current => 1, 2, 3
+ *         result = []
+ *         backtrack(result, [], nums)
+ *         return result
  */
-
 
 
