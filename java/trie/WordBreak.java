@@ -11,10 +11,6 @@ import java.util.List;
  */
 public class WordBreak {
 
-    public static void main(String[] args) {
-        new WordBreak().wordBreak("leetcode", List.of("leet","code"));
-    }
-
     public boolean wordBreak(String s, List<String> wordDict) {
         var trie = new Trie();
         for (String w: wordDict) {
@@ -40,7 +36,6 @@ public class WordBreak {
                 }
                 idx++;
             }
-
             memo[start] = false;
         }
         return memo[start];
@@ -59,19 +54,22 @@ public class WordBreak {
         }
 
         Trie addChild(char ch) {
-            if (this.children == null) {
-                this.children = new Trie[26];
+            if (children == null) {
+                children = new Trie[26];
             }
 
-            int index = ch - 'a';
-            if (this.children[index] == null) {
-                this.children[index] = new Trie();
+            var idx = ch - 'a';
+            if (children[idx] == null) {
+                children[idx] = new Trie();
             }
-            return this.children[index];
+            return children[idx];
         }
 
         Trie getChild(char ch) {
-            return this.children == null ? null : children[ch - 'a'];
+            if (children == null) {
+                return null;
+            }
+            return children[ch - 'a'];
         }
     }
 }
