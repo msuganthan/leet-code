@@ -6,11 +6,7 @@ import java.util.List;
 
 public class ThreeSum {
 
-    public static void main(String[] args) {
-        threeSum(new int[]{0, 0, 0, 0});
-    }
-
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < nums.length - 2; i++) {
@@ -39,4 +35,58 @@ public class ThreeSum {
         }
         return result;
     }
+
+    /**
+     *     def threeSum(self, nums: List[int]) -> List[List[int]]:
+     *         nums.sort()
+     *         answer = set()
+     *
+     *         for i in range(len(nums) - 2):
+     *             j = i + 1
+     *             k = len(nums) - 1
+     *
+     *             while j < k:
+     *                 total = nums[i] + nums[j] + nums[k]
+     *                 if total == 0:
+     *                     answer.add(tuple([nums[i], nums[j], nums[k]]))
+     *                     j += 1
+     *                     k -= 1
+     *                 elif total > 0:
+     *                     k -= 1
+     *                 else:
+     *                     j += 1
+     *
+     *         return answer
+     */
+
+    /**
+     * func threeSum(nums []int) [][]int {
+     *     sort.Ints(nums)
+     *     answerSet := make(map[[3]int]bool)
+     *
+     *     for i := 0; i < len(nums) - 2; i++ {
+     *         j := i + 1
+     *         k := len(nums) - 1
+     *
+     *         for j < k {
+     *             total := nums[i] + nums[j] + nums[k]
+     *             if total == 0 {
+     *                 triplet := [3]int{nums[i], nums[j], nums[k]}
+     *                 answerSet[triplet] = true
+     *                 j++
+     *                 k--
+     *             } else if total > 0 {
+     *                 k--
+     *             } else {
+     *                 j++
+     *             }
+     *         }
+     *     }
+     *     answer := make([][]int, 0, len(answerSet))
+     *     for triplet := range answerSet {
+     *         answer = append(answer, []int{triplet[0], triplet[1], triplet[2]})
+     *     }
+     *     return answer
+     * }
+     */
 }
