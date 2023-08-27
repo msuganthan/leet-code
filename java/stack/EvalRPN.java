@@ -6,28 +6,25 @@ import java.util.Stack;
  * 150. Evaluate Reverse Polish Notation
  */
 public class EvalRPN {
-    public static void main(String[] args) {
 
-    }
-
-    int evalRPN(String[] tokens) {
-        int a, b;
+    public int evalRPN(String[] tokens) {
         Stack<Integer> stack = new Stack<>();
-        for (String s: tokens) {
-            if (s.equals("+")) {
-                stack.push(stack.pop() + stack.pop());
-            } else if (s.equals("/")) {
-                b = stack.pop();
-                a = stack.pop();
-                stack.push(a / b);
-            } else if (s.equals("*")) {
-                stack.push(stack.pop() * stack.pop());
-            } else if( s.equals("-")) {
-                b = stack.pop();
-                a = stack.pop();
-                stack.push(a - b);
-            } else {
-                stack.push(Integer.parseInt(s));
+        int a, b;
+        for(String token: tokens) {
+            switch (token) {
+                case "+" -> stack.push(stack.pop() + stack.pop());
+                case "-" -> {
+                    b = stack.pop();
+                    a = stack.pop();
+                    stack.push(a - b);
+                }
+                case "*" -> stack.push(stack.pop() * stack.pop());
+                case "/" -> {
+                    b = stack.pop();
+                    a = stack.pop();
+                    stack.push(a / b);
+                }
+                default -> stack.push(Integer.parseInt(token));
             }
         }
         return stack.pop();
