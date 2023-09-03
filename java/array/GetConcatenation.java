@@ -17,4 +17,27 @@ public class GetConcatenation {
         }
         return ans;
     }
+
+    /**
+     *     def getConcatenation(self, nums: List[int]) -> List[int]:
+     *         answer = [0] * (len(nums) * 2)
+     *         for i in range(len(nums)):
+     *             answer[i] = nums[i]
+     *             answer[i + len(nums)] = nums[i]
+     *
+     *         return answer
+     */
+
+    /**
+     * func getConcatenation(nums []int) []int {
+     *     n := len(nums)
+     *     ans := make([]int, n * 2)
+     *
+     *     for i:= 0; i < n; i++ {
+     *         ans[i] = nums[i]
+     *         ans[i + n] = nums[i]
+     *     }
+     *     return ans
+     * }
+     */
 }
