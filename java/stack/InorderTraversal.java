@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InorderTraversal {
-    public static void main(String[] args) {
-
-    }
 
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
@@ -19,12 +16,30 @@ public class InorderTraversal {
     }
 
     void inorderTraversal(TreeNode root, List<Integer> result) {
-        if (root.left != null)
+        if(root != null) {
             inorderTraversal(root.left, result);
-        result.add(root.val);
-        if (root.right != null)
+            result.add(root.val);
             inorderTraversal(root.right, result);
+        }
     }
+
+    /**
+     *     public List<Integer> inorderTraversal(TreeNode root) {
+     *         List<Integer> answer = new ArrayList<>();
+     *         Stack<TreeNode> stack = new Stack<>();
+     *         TreeNode curr = root;
+     *         while(curr != null || !stack.empty()) {
+     *             while(curr != null) {
+     *                 stack.push(curr);
+     *                 curr = curr.left;
+     *             }
+     *             curr = stack.pop();
+     *             answer.add(curr.val);
+     *             curr = curr.right;
+     *         }
+     *         return answer;
+     *     }
+     */
 
 
 
