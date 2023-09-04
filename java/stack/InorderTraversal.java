@@ -41,8 +41,6 @@ public class InorderTraversal {
      *     }
      */
 
-
-
     public class TreeNode {
         int val;
         TreeNode left;

@@ -4,103 +4,74 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LRUCache {
-
-    class DLinkedList {
-        int key;
-        int value;
-        DLinkedList prev;
-        DLinkedList post;
-    }
+    private final Map<Integer, Node> cache;
+    private final int capacity;
+    private final Node left;
+    private final Node right;
 
     public LRUCache(int capacity) {
-        this.count = 0;
         this.capacity = capacity;
+        this.cache = new HashMap<>();
 
-        head = new DLinkedList();
-        head.prev = null;
+        this.left = new Node(0, 0);
+        this.right = new Node(0, 0);
 
-        tail = new DLinkedList();
-        tail.post = null;
-
-        head.post = tail;
-        tail.prev  = head;
+        this.left.next = this.right;
+        this.right.prev = this.left;
     }
 
-    Map<Integer, DLinkedList> cache = new HashMap<>();
-    int capacity;
-    int count;
-    DLinkedList head, tail;
-
-    void removeNode(DLinkedList node) {
-
-        DLinkedList prev = node.prev;
-        DLinkedList post = node.post;
-
-        prev.post = post;
-        post.prev = prev;
-    }
-
-    DLinkedList	popTail() {
-        DLinkedList lastNode = tail.prev;
-        this.removeNode(lastNode);
-        return lastNode;
-    }
-
-    void moveToHead(DLinkedList node) {
-        this.removeNode(node);
-        this.addNode(node);
-    }
-
-    void addNode(DLinkedList newNode) {
-        newNode.prev = head;
-        newNode.post = head.post;
-
-        head.post.prev = newNode;
-        head.post = newNode;
-    }
-
-    int get(int key) {
-        DLinkedList node = cache.get(key);
-
-        if(node == null)
-            return -1;
-
-        this.moveToHead(node);
-
-        return node.value;
-    }
-
-    void put(int key, int value) {
-        DLinkedList node = cache.get(key);
-        if(node == null) {
-            DLinkedList newNode = new DLinkedList();
-            newNode.key = key;
-            newNode.value = value;
-
-            this.cache.put(key, newNode);
-            this.addNode(newNode);
-            ++count;
-
-            if(this.count > capacity) {
-                DLinkedList removedNode = this.popTail();
-                this.cache.remove(removedNode.key);
-                --count;
-            }
+    public int get(int key) {
+        if (cache.containsKey(key)) {
+            remove(cache.get(key));
+            insert(cache.get(key));
+            return cache.get(key).val;
         } else {
-            node.value = value;
-            this.moveToHead(node);
+            return -1;
         }
     }
 
-    public static void main(String[] args) {
-        LRUCache lruCache = new LRUCache(2);
-        lruCache.put(1, 1);
-        lruCache.put(2, 2);
+    public void put(int key, int value) {
+        if (cache.containsKey(key)) {
+            remove(cache.get(key));
+        }
+        cache.put(key, new Node(key, value));
+        insert(cache.get(key));
 
-        lruCache.get(1);
+        if (cache.size() > capacity) {
+            Node lru = this.left.next;
+            remove(lru);
+            cache.remove(lru.key);
+        }
+    }
 
-        lruCache.put(3, 3);
+    public void insert(Node node) {
+        Node prev = this.right.prev;
+        Node next = this.right;
 
-        lruCache.get(2);
+        prev.next = node;
+        next.prev = node;
+
+        node.prev = prev;
+        node.next = next;
+    }
+
+    public void remove(Node node) {
+        Node prev = node.prev;
+        Node next = node.next;
+
+        prev.next = next;
+        next.prev = prev;
+    }
+
+    class Node {
+        final int key;
+        final int val;
+        Node next;
+        Node prev;
+
+        public Node(int key, int val) {
+            this.key = key;
+            this.val = val;
+        }
     }
 }

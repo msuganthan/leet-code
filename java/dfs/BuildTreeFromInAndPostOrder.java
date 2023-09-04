@@ -5,21 +5,21 @@ public class BuildTreeFromInAndPostOrder {
         return buildTree(inorder, inorder.length - 1, 0, postorder, postorder.length - 1);
     }
 
-    TreeNode buildTree(int[] iOrder, int iStart, int iEnd, int[] postOrder, int pStart) {
-        if (pStart < 0 || iStart < iEnd)
+    TreeNode buildTree(int[] inOrder, int inStart, int inEnd, int[] postOrder, int postStart) {
+        if (postStart < 0 || inStart < inEnd)
             return null;
 
-        TreeNode root = new TreeNode(postOrder[pStart]);
+        TreeNode root = new TreeNode(postOrder[postStart]);
         int index = 0;
-        for (int i = iStart; i >= iEnd; i--) {
-            if (iOrder[i] == postOrder[pStart]) {
+        for (int i = inStart; i >= inEnd; i--) {
+            if (inOrder[i] == postOrder[postStart]) {
                 index = i;
                 break;
             }
         }
 
-        root.left = buildTree(iOrder, index - 1, iEnd, postOrder, pStart - (iStart - index) - 1);
-        root.right = buildTree(iOrder, iStart, index + 1, postOrder, pStart - 1);
+        root.left = buildTree(inOrder, index - 1, inEnd, postOrder, postStart - (inStart - index) - 1);
+        root.right = buildTree(inOrder, inStart, index + 1, postOrder, postStart - 1);
 
         return root;
     }

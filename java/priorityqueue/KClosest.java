@@ -16,19 +16,23 @@ import java.util.Queue;
  */
 public class KClosest {
     public int[][] kClosest(int[][] points, int k) {
-        Queue<int[]> queue = new PriorityQueue<>((a, b) -> b[0] - a[0]);
-        for (int i = 0; i < points.length; i++) {
-            int[] entry = { distance(points[i]), i };
-            if (queue.size() < k) {
-                queue.add(entry);
-            } else if (entry[0] < queue.peek()[0]) {
-                queue.poll();
-                queue.add(entry);
+        PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) ->
+            Integer.compare(
+                    (b[0] * b[0] + b[1] * b[1]),
+                    (a[0] * a[0] + a[1] * a[1])
+            ));
+        for (int[] point : points) {
+            queue.add(point);
+            //remove when size increase k
+            if (queue.size() > k) {
+                queue.remove();
             }
         }
         int[][] ans = new int[k][2];
         for (int i = 0; i < k; i++) {
-            ans[i] = points[queue.poll()[1]];
+            int[] cur = queue.poll();
+            ans[i][0] = cur[0];
+            ans[i][1] = cur[1];
         }
         return ans;
     }
