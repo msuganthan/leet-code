@@ -12,6 +12,11 @@ public class OddEvenList {
         ListNode listNode2 = new ListNode(2, listNode1);
 
         oddEvenList(listNode2);
+
+        while (listNode2 != null) {
+            System.out.println(listNode2.val);
+            listNode2 = listNode1.next;
+        }
     }
 
     public static ListNode oddEvenList(ListNode head) {

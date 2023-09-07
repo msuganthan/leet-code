@@ -1,9 +1,6 @@
 package linkedlist;
 
 public class SwapPairs {
-    public static void main(String[] args) {
-
-    }
 
     public ListNode swapPairs(ListNode head) {
         ListNode temp = head;
