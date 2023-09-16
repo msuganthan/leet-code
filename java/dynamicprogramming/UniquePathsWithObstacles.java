@@ -13,9 +13,6 @@ package dynamicprogramming;
  * An obstacle and space is marked as 1 and 0 respectively in the grid.
  */
 public class UniquePathsWithObstacles {
-    public static void main(String[] args) {
-
-    }
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1)
@@ -37,5 +34,29 @@ public class UniquePathsWithObstacles {
             }
         }
         return  obstacleGrid[m - 1][n - 1];
+    }
+
+    public int uniquePathsWithObstacles1(int[][] obstacleGrid) {
+        return dfs(
+                obstacleGrid,
+                0,
+                0,
+                obstacleGrid.length,
+                obstacleGrid[0].length,
+                new int[obstacleGrid.length][obstacleGrid[0].length]
+        );
+    }
+
+    int dfs(int[][] grid, int i, int j, int m, int n, int[][] dp) {
+        if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == 1) {
+            return 0;
+        }
+        if (i == m - 1 && j == n - 1) {
+            dp[i][j] = 1;
+            return dp[i][j];
+        }
+        if (dp[i][j] != 0) return dp[i][j];
+        dp[i][j] = dfs(grid, i, j + 1, m, n, dp) + dfs(grid, i + 1, j, m, n, dp);
+        return dp[i][j];
     }
 }

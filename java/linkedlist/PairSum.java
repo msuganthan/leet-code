@@ -3,29 +3,25 @@ package linkedlist;
 public class PairSum {
     public int pairSum(ListNode head) {
         ListNode slow = head;
-        ListNode fast = head;
-        while(fast != null && fast.next != null) {
+        ListNode fast = head.next;
+        while(fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-
         ListNode prev = null;
         while(slow != null) {
-            ListNode nextNode = slow.next;
+            ListNode temp = slow.next;
             slow.next = prev;
             prev = slow;
-            slow = nextNode;
+            slow = temp;
         }
-
-        ListNode start = head;
-        int maximumSum = 0;
-        while(prev != null) {
-            maximumSum = Math.max(maximumSum, start.val + prev.val);
-
+        int sum = 0;
+        while(prev != null && head != null) {
+            sum = Math.max(sum, prev.val + head.val);
             prev = prev.next;
-            start = start.next;
+            head = head.next;
         }
-        return maximumSum;
+        return sum;
     }
 
     /**
