@@ -13,32 +13,22 @@ package dfs;
  * Both the left and right subtrees must also be binary search trees.
  */
 public class IsValidBST {
-    boolean isValidBST(TreeNode root) {
-        return isValidBST(root, null, null);
+
+    public boolean isValidBST(TreeNode root) {
+        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    boolean isValidBST(TreeNode root, Integer lowerBound, Integer upperBound) {
-        if (root == null) {
+    boolean isValid(TreeNode root, long minValue, long maxValue) {
+        if(root == null) {
             return true;
         }
 
-        int val = root.val;
-        if (upperBound != null && val >= upperBound) {
+        if(root.val >= maxValue || root.val <= minValue) {
             return false;
         }
 
-        if (lowerBound != null && val <= lowerBound) {
-            return false;
-        }
-
-        if (!isValidBST(root.left, lowerBound, root.val)) {
-            return false;
-        }
-
-        if (!isValidBST(root.right, root.val, upperBound)) {
-            return false;
-        }
-        return true;
+        return isValid(root.left, minValue, root.val)
+                && isValid(root.right, root.val, maxValue);
     }
 
 
@@ -52,5 +42,4 @@ public class IsValidBST {
             this.right = right;
         }
     }
-
 }

@@ -3,9 +3,6 @@ package stack;
 import java.util.Arrays;
 
 public class MaximalRectangle {
-    public static void main(String[] args) {
-
-    }
 
     int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) return 0;

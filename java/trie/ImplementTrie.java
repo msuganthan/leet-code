@@ -90,6 +90,4 @@ public class ImplementTrie {
             this.end = end;
         }
     }
-
-
 }

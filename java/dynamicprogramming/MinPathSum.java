@@ -9,9 +9,6 @@ package dynamicprogramming;
  * Note: You can only move either down or right at any point in time.
  */
 public class MinPathSum {
-    public static void main(String[] args) {
-
-    }
 
     public int minPathSum(int[][] grid) {
         int m = grid.length;
