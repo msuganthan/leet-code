@@ -3,29 +3,25 @@ package array;
 import java.util.Arrays;
 
 public class ThreeSumClosest {
-    public static void main(String[] args) {
-        System.out.println(threeSumClosest(new int[]{-1, 2, 1, -4}, 1));
-    }
 
-    public static int threeSumClosest(int[] array, int target) {
-        Integer result = array[0] + array[1] + array[array.length - 1];
-        Arrays.sort(array);
-        for (int i = 0; i < array.length - 2; i++) {
+    public static int threeSumClosest(int[] nums, int target) {
+        int result = Integer.MAX_VALUE;
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length - 2; i++) {
+            int j = i + 1;
+            int k = nums.length - 1;
 
-            int firstElement = array[i];
-            int firstPointer = i + 1;
-            int secondPointer = array.length - 1;
+            while(j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                if(sum > target) {
+                    k--;
+                } else {
+                    j++;
+                }
 
-            while (firstPointer < secondPointer) {
-                int firstPointerElement = array[firstPointer];
-                int secondPointerElement = array[secondPointer];
-                int totalSum = firstElement + firstPointerElement + secondPointerElement;
-                if (totalSum > target)
-                    secondPointer--;
-                else
-                    firstPointer++;
-                if (Math.abs(totalSum - target) < Math.abs(result - target))
-                    result = totalSum;
+                if (Math.abs(sum - target) < Math.abs(result - target)) {
+                    result = sum;
+                }
             }
         }
         return result;

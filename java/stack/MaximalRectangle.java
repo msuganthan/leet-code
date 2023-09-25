@@ -36,8 +36,6 @@ public class MaximalRectangle {
                     lB = j + 1;
                 }
             }
-
-
         }
         return maxArea;
     }

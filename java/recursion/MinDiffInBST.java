@@ -1,13 +1,20 @@
 package recursion;
 
 public class MinDiffInBST {
-    public static void main(String[] args) {
 
-    }
-
-
+    Integer result = Integer.MAX_VALUE, pre = null;
     public int minDiffInBST(TreeNode root) {
-        return 0;
+        if(root.left != null) {
+            minDiffInBST(root.left);
+        }
+        if(pre != null) {
+            result = Math.min(result, root.val - pre);
+        }
+        pre = root.val;
+        if(root.right != null) {
+            minDiffInBST(root.right);
+        }
+        return result;
     }
 
     public class TreeNode {
