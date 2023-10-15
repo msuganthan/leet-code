@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Generate {
-
-    public static void main(String[] args) {
-        new Generate().generate(5);
-    }
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> answer = new ArrayList<>();
         for(int i = 0; i < numRows; i++) {

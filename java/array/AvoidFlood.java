@@ -29,11 +29,11 @@ import java.util.TreeSet;
 public class AvoidFlood {
 
     static int[] avoidFlood(int[] rains) {
-        int N = rains.length;
-        int[] answer = new int[N];
+        int n = rains.length;
+        int[] answer = new int[n];
         TreeSet<Integer> dryDays = new TreeSet<>();
         Map<Integer, Integer> lakeToFill = new HashMap<>();
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             if (rains[i] == 0) {
                 dryDays.add(i);
                 answer[i] = 1;

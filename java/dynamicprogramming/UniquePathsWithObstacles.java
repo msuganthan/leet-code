@@ -14,6 +14,16 @@ package dynamicprogramming;
  */
 public class UniquePathsWithObstacles {
 
+    public static void main(String[] args) {
+        new UniquePathsWithObstacles().uniquePathsWithObstacles1(
+                new int[][]{
+                        {0,0,0},
+                        {0,1,0},
+                        {0,0,0}
+                }
+        );
+    }
+
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if (obstacleGrid[0][0] == 1)
             return 0;
@@ -48,6 +58,7 @@ public class UniquePathsWithObstacles {
     }
 
     int dfs(int[][] grid, int i, int j, int m, int n, int[][] dp) {
+        System.out.println("i => "+i + " j => "+j);
         if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == 1) {
             return 0;
         }

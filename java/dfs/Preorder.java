@@ -21,19 +21,30 @@ public class Preorder {
         return result;
     }
 
-    class Node {
-        public int val;
-        public List<Node> children;
+    List<Integer> answer = new ArrayList<>();
+    public List<Integer> preorder1(Node root) {
+        if(root == null) {
+            return answer;
+        }
+        answer.add(root.val);
+        for(Node node: root.children) {
+            preorder1(node);
+        }
+        return answer;
+    }
 
-        public Node() {}
+    static class Node {
+        public final int val;
+        public final List<Node> children;
 
-        public Node(int _val) {
-            val = _val;
+        public Node(int val) {
+            this.val = val;
+            this.children = new ArrayList<>();
         }
 
-        public Node(int _val, List<Node> _children) {
-            val = _val;
-            children = _children;
+        public Node(int val, List<Node> children) {
+            this.val = val;
+            this.children = children;
         }
     }
 }

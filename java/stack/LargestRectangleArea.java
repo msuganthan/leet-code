@@ -1,33 +1,45 @@
 package stack;
 
-public class LargestRectangleArea {
-    public static void main(String[] args) {
+import java.util.Stack;
 
-    }
+public class LargestRectangleArea {
 
     int largestRectangleArea(int[] height) {
-        int[] lessFromLeft = new int[height.length];
-        int[] lessFromRight = new int[height.length];
-        lessFromRight[height.length - 1] = height.length;
-        lessFromLeft[0] = -1;
-
-        for (int i = 1; i < height.length; i++) {
-            int p = i - 1;
-            while (p >= 0 && height[p] >= height[i])
-                p = lessFromLeft[p];
-            lessFromLeft[i] = p;
+        int area = 0, n = height.length;
+        int start;
+        Stack<CustomPair> stack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            start = i;
+            while (!stack.empty() && stack.peek().getValue() > height[i]) {
+                CustomPair pair = stack.pop();
+                area = Math.max(area, pair.getValue() * (i - pair.getKey()));
+                start = pair.getKey();
+            }
+            stack.push(new CustomPair(start, height[i]));
         }
 
-        for (int i = height.length - 2; i >= 0; i--) {
-            int p = i + 1;
-            while (p < height.length && height[p] >= height[i])
-                p = lessFromRight[p];
-            lessFromRight[i] = p;
+        while (!stack.isEmpty()) {
+            CustomPair pair = stack.pop();
+            area = Math.max(area, pair.getValue() * (n - pair.getKey()));
+        }
+        return area;
+    }
+
+    static class CustomPair {
+        private final Integer key;
+        private final Integer value;
+
+        CustomPair(Integer key, Integer value) {
+            this.key = key;
+            this.value = value;
         }
 
-        int maxArea = 0;
-        for (int i = 0; i < height.length; i++)
-            maxArea = Math.max(maxArea, height[i] * (lessFromLeft[i] - lessFromRight[i] - 1));
-        return maxArea;
+        public Integer getKey() {
+            return key;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
     }
 }

@@ -23,7 +23,7 @@ public class PostorderTraversal {
         result.add(root.val);
     }
 
-    public class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

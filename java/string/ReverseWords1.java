@@ -11,55 +11,24 @@ package string;
 
 public class ReverseWords1 {
 
-    public static void main(String[] args) {
-        System.out.println(reverseWords("Let's take LeetCode contest"));
-    }
-
-    public static String reverseWords(String s) {
-        StringBuilder sb = new StringBuilder();
-        int N = s.length();
+    public String reverseWords(String s) {
+        char[] chars = s.toCharArray();
         int i = 0;
-        int j = i;
-        for(; i < N; i++) {
-            if (s.charAt(i) == ' ') {
-                sb.append(reverseWords(s, j, i - 1));
-                sb.append(' ');
-                j = i + 1;
+        for(int j = 0; j < chars.length - 1; j++) {
+            if(chars[j] == ' ') {
+                reverse(chars, i, j - 1);
+                i = j + 1;
             }
         }
-        sb.append(reverseWords(s, j, i - 1));
-        return sb.toString();
+        reverse(chars, i, chars.length - 1);
+        return new String(chars);
     }
 
-    public static String reverseWords(String s, int first, int last) {
-        StringBuilder sb = new StringBuilder();
-        while (first <= last) {
-            sb.append(s.charAt(last--));
+    void reverse(char[] chars, int i, int j) {
+        while(i < j) {
+            char c = chars[i];
+            chars[i++] = chars[j];
+            chars[j--] = c;
         }
-        return sb.toString();
-    }
-
-    /**
-     * This is extremely fast
-     */
-    public String reverseWordsImpr(String s) {
-        int len = s.length();
-        char[] chArray = s.toCharArray();
-        int lastSpaceIndex = -1;
-        for (int strIndex = 0; strIndex <= len; strIndex++) {
-            if (strIndex == len || chArray[strIndex] == ' ') {
-                int startIndex = lastSpaceIndex + 1;
-                int endIndex = strIndex - 1;
-                while(startIndex < endIndex) {
-                    char temp = chArray[startIndex];
-                    chArray[startIndex] = chArray[endIndex];
-                    chArray[endIndex] = temp;
-                    startIndex++;
-                    endIndex--;
-                }
-                lastSpaceIndex = strIndex;
-            }
-        }
-        return new String(chArray);
     }
 }

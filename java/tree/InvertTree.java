@@ -30,13 +30,19 @@ public class InvertTree {
         return root;
     }
 
-    void swap(TreeNode node) {
-        TreeNode temp = node.left;
-        node.left = node.right;
-        node.right = temp;
+    public TreeNode invertTree1(TreeNode root) {
+        if(root == null) {
+            return null;
+        }
+        invertTree1(root.left);
+        invertTree1(root.right);
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        return root;
     }
 
-    private class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

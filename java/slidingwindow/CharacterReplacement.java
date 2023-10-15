@@ -5,23 +5,21 @@ package slidingwindow;
  */
 public class CharacterReplacement {
 
-    public static void main(String[] args) {
-        characterReplacement("AABABBA", 1);
-    }
-
-    static int characterReplacement(String s, int k) {
-        int max = 0;
-        int[] countMap = new int[26];
-        int windowStart = 0;
-        int N           = s.length();
-        for (int windowEnd = 0; windowEnd < N; windowEnd++) {
-            max = Math.max(max, ++countMap[s.charAt(windowEnd) - 'A']);
-
-            //Max is the number of same character
-            //max + k: is the number of same possible character.
-            if (max + k <= windowEnd - windowStart)
-                --countMap[s.charAt(windowStart++) - 'A'];
+    int characterReplacement(String s, int k) {
+        int[] arr = new int[26];
+        int maxFrequency = 0;
+        int answer = 0;
+        int i = 0;
+        for(int j = 0; j < s.length(); j++) {
+            arr[s.charAt(j) - 'A']++;
+            maxFrequency = Math.max(maxFrequency, arr[s.charAt(j) - 'A']);
+            int windowLength = j - i + 1;
+            if(windowLength - maxFrequency > k) {
+                arr[s.charAt(i) - 'A']--;
+                i++;
+            }
+            answer = Math.max(answer, j - i + 1);
         }
-        return N - windowStart;
+        return answer;
     }
 }

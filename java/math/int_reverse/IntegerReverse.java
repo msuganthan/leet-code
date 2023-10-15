@@ -1,4 +1,4 @@
-package math.binary;
+package math.int_reverse;
 
 public class IntegerReverse {
     public static void main(String[] args) {

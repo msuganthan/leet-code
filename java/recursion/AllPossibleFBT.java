@@ -24,35 +24,28 @@ import java.util.Map;
  *          [0,0,0,0,0,null,null,0,0]]
  */
 public class AllPossibleFBT {
-    public static void main(String[] args) {
-
-    }
 
     Map<Integer, List<TreeNode>> memo = new HashMap<>();
-    public List<TreeNode> allPossibleFBT(int N) {
-        if (!memo.containsKey(N)) {
-            List<TreeNode> ans = new LinkedList();
-            if (N == 1) {
+    public List<TreeNode> allPossibleFBT(int n) {
+        if (!memo.containsKey(n)) {
+            List<TreeNode> ans = new LinkedList<>();
+            if (n == 1) {
                 ans.add(new TreeNode(0));
-            } else if (N % 2 == 1) {
-                for (int x = 0; x < N; ++x) {
-                    int y = N - 1 - x;
-                    for (TreeNode left: allPossibleFBT(x))
-                        for (TreeNode right: allPossibleFBT(y)) {
-                            TreeNode bns = new TreeNode(0);
-                            bns.left = left;
-                            bns.right = right;
-                            ans.add(bns);
+            } else if (n % 2 == 1) {
+                for (int l = 0; l < n; ++l) {
+                    int r = n - 1 - l;
+                    for (TreeNode left: allPossibleFBT(l))
+                        for (TreeNode right: allPossibleFBT(r)) {
+                            ans.add(new TreeNode(0, left, right));
                         }
                 }
             }
-            memo.put(N, ans);
+            memo.put(n, ans);
         }
-
-        return memo.get(N);
+        return memo.get(n);
     }
 
-    public class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

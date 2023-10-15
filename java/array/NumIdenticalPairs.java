@@ -1,19 +1,21 @@
 package array;
 
-/**
- * Created by msuganthan on 5/9/20.
- */
+import java.util.HashMap;
+import java.util.Map;
+
 public class NumIdenticalPairs {
 
     public static void main(String[] args) {
-        numIdenticalPairs(new int[]{1, 2, 3, 1, 1, 3});
+        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[]{1, 1, 1, 1}));
     }
 
-    public static int numIdenticalPairs(int[] nums) {
-        int res = 0;
-        int[] count = new int[101];
-        for (int n : nums)
-            res += count[n]++;
-        return res;
+    public int numIdenticalPairs(int[] nums) {
+        Map<Integer, Integer> counts = new HashMap<>();
+        int ans = 0;
+        for (int num: nums) {
+            ans += counts.getOrDefault(num, 0);
+            counts.put(num, counts.getOrDefault(num, 0) + 1);
+        }
+        return ans;
     }
 }
