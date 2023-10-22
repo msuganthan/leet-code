@@ -6,43 +6,44 @@ import java.util.List;
 import java.util.Map;
 
 public class RandomizedSet {
-    public static void main(String[] args) {
+    private Map<Integer, Integer> indexing;
+    private List<Integer> numbers;
 
-    }
-
-    List<Integer> numbers;
-    Map<Integer, Integer> location;
-    java.util.Random random = new java.util.Random();
     public RandomizedSet() {
-        numbers = new ArrayList<>();
-        location = new HashMap<>();
+        this.indexing = new HashMap<>();
+        this.numbers = new ArrayList<>();
     }
 
-    boolean insert(int val) {
-        if (location.containsKey(val))
+    public boolean insert(int val) {
+        if(this.indexing.containsKey(val)) {
             return false;
-
-        location.put(val, numbers.size());
-        numbers.add(val);
-        return true;
-    }
-
-    boolean remove(int val) {
-        if (!location.containsKey(val))
-            return false;
-
-        int loc = location.get(val);
-        if (loc < numbers.size() - 1) {
-            int lastOne = numbers.get(numbers.size() - 1);
-            numbers.set(loc, lastOne);
-            location.put(lastOne, loc);
         }
-        location.remove(val);
-        numbers.remove(numbers.size() - 1);
+        int indexInsert = this.numbers.size();
+        this.numbers.add(val);
+        this.indexing.put(val, indexInsert);
         return true;
     }
 
-    int getRandom() {
-        return numbers.get(random.nextInt(numbers.size()));
+    public boolean remove(int val) {
+        if(!this.indexing.containsKey(val)) {
+            return false;
+        }
+
+        int lastIndex = this.numbers.size() - 1;
+        int lastElement = this.numbers.get(lastIndex);
+        int indexElement = this.indexing.get(val);
+
+        this.numbers.set(indexElement, lastElement);
+
+        this.indexing.put(lastElement, indexElement);
+        this.indexing.remove(val);
+
+        this.numbers.remove(lastIndex);
+        return true;
+    }
+
+    public int getRandom() {
+        int randomIndex = (int) (Math.random() * this.numbers.size());
+        return this.numbers.get(randomIndex);
     }
 }

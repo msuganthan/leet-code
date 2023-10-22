@@ -13,7 +13,7 @@ package array.jump;
  *
  * Tag: dynamicProgramming.
  */
-public class JumpGame {
+public class Jump {
     static int jump(int[] nums) {
         int jump = 0, currEnd = 0, currFarthest = 0;
         for (int i = 0; i < nums.length - 1; i++) {
