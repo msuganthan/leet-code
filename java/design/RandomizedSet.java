@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class RandomizedSet {
-    private Map<Integer, Integer> indexing;
-    private List<Integer> numbers;
+    private final Map<Integer, Integer> indexing;
+    private final List<Integer> numbers;
 
     public RandomizedSet() {
         this.indexing = new HashMap<>();
