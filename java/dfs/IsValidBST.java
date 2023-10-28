@@ -23,16 +23,16 @@ public class IsValidBST {
             return true;
         }
 
-        if(root.val >= maxValue || root.val <= minValue) {
+        if (root.val >= maxValue || root.val <= minValue) {
             return false;
         }
 
         return isValid(root.left, minValue, root.val)
-                && isValid(root.right, root.val, maxValue);
+                && isValid(root.right, maxValue, root.val);
     }
 
 
-    private class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

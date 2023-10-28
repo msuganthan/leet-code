@@ -19,27 +19,13 @@ import java.util.Map;
  * Output: 1
  */
 public class FindCenter {
-    public static void main(String[] args) {
-        System.out.println(new FindCenter().findCenter(new int[][]{{1, 2}, {2, 3}, {4, 2}}));
-    }
 
     public int findCenter(int[][] edges) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int center = -1;
-        int maxNodes = Integer.MIN_VALUE;
-        for (int i = 0; i < edges.length; i++) {
-            map.put(edges[i][0], map.getOrDefault(edges[i][0], 0) + 1);
-            if (map.get(edges[i][0]) > maxNodes) {
-                maxNodes = map.get(edges[i][0]);
-                center = edges[i][0];
-            }
-            map.put(edges[i][1], map.getOrDefault(edges[i][1], 0) + 1);
-            if (map.get(edges[i][1]) > maxNodes) {
-                maxNodes = map.get(edges[i][1]);
-                center = edges[i][1];
-            }
-
+        //The centre node must appear in every edge.
+        if(edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1]) {
+            return edges[0][0];
+        } else {
+            return edges[0][1];
         }
-        return center;
     }
 }
