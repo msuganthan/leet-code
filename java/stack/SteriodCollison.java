@@ -7,10 +7,6 @@ import java.util.Stack;
  */
 public class SteriodCollison {
 
-    public static void main(String[] args) {
-
-    }
-
     public int[] asteroidCollision(int[] asteroids) {
         Stack<Integer> stack = new Stack<>();
         for (int ast : asteroids) {
@@ -18,7 +14,6 @@ public class SteriodCollison {
             {
                 //stack peek is positive and ast is negative
                 while (!stack.isEmpty() && stack.peek() > 0 && ast < 0) {
-
                     if (stack.peek() < -ast) {
                         stack.pop();
                         continue;
@@ -35,6 +30,5 @@ public class SteriodCollison {
             ans[t] = stack.pop();
         }
         return ans;
-
     }
 }

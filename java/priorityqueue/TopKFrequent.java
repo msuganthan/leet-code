@@ -14,22 +14,18 @@ import java.util.Queue;
  */
 public class TopKFrequent {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> container = new HashMap<>();
         for(int n: nums) {
-            map.put(n, map.getOrDefault(n, 0) + 1);
+            container.put(n, container.getOrDefault(n, 0) + 1);
         }
-        PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> a[1] - b[1]);
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            queue.offer(new int[]{entry.getKey(), entry.getValue()});
-            if(queue.size() > k) {
-                queue.remove();
-            }
-        }
-        int[] answer = new int[k];
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> container.get(o2) - container.get(o1));
+        queue.addAll(container.keySet());
+
+        int[] result = new int[k];
         while(k > 0) {
-            int[] element = queue.remove();
-            answer[--k] = element[0];
+            result[--k] = queue.poll();
         }
-        return answer;
+        return result;
     }
 }

@@ -6,8 +6,8 @@ public class IsPalindrome {
         int j = s.length() - 1;
 
         while (i < j) {
-            Character start = s.charAt(i);
-            Character end = s.charAt(j);
+            char start = s.charAt(i);
+            char end = s.charAt(j);
 
             if (!Character.isLetterOrDigit(start)) {
                 i++;

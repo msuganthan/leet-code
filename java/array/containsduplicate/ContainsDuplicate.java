@@ -15,8 +15,8 @@ public class ContainsDuplicate {
         Set<Integer> numSet = new HashSet<>();
         for (int n: nums) {
             if (!numSet.add(n))
-                return false;
+                return true;
         }
-        return true;
+        return false;
     }
 }

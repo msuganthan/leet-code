@@ -26,7 +26,7 @@ public class GroupAnagrams {
             map.computeIfAbsent(keyStr, s -> new ArrayList<>());
             map.get(keyStr).add(str);
         }
-        return new ArrayList<>(map.values());
+        return map.values().stream().toList();
     }
 
     /**
