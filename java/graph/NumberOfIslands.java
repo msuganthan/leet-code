@@ -2,26 +2,28 @@ package graph;
 
 public class NumberOfIslands {
 
-    int numIslands(char[][] grid) {
+    public int numIslands(char[][] grid) {
         int count = 0;
-        for (int i = 0; i < grid.length; i++)
-            for (int j = 0; j < grid[i].length; j++)
-                if (grid[i][j] == '1') {
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j] == '1') {
                     count += 1;
                     callBFS(grid, i, j);
                 }
+            }
+        }
         return count;
-
     }
 
-    void callBFS(char[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0')
+    private void callBFS(char[][] grid, int start, int end) {
+        if (start < 0 || end < 0 || start >= grid.length || end >= grid[0].length || grid[start][end] == '0') {
             return;
-        grid[i][j] = '0';
+        }
+        grid[start][end] = '0';
 
-        callBFS(grid, i + 1, j); //up
-        callBFS(grid, i - 1, j); //down
-        callBFS(grid, i, j - 1); //left
-        callBFS(grid, i, j + 1); //right
+        callBFS(grid, start + 1, end);
+        callBFS(grid, start, end + 1);
+        callBFS(grid, start - 1, end);
+        callBFS(grid, start, end - 1);
     }
 }
